@@ -9,3 +9,6 @@ Kristofer Constantino
 Jenna Meador
 Isaac Bennett
 Trey Stell
+
+----
+Project outline file: https://docs.google.com/document/d/1X5EyHF3vfXwIlI3v1WHWahy4iAvPP8s5Vg7FdusRZ60/edit?usp=sharing
