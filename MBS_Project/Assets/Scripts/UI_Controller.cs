@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class UI_Controller : MonoBehaviour {
 
     public List<GameObject> SelectableElementList;
+    //For Battle scene
+
 
     public int currentCursorPos = 0;
     public bool selectionInputHeld = false;
@@ -28,83 +30,93 @@ public class UI_Controller : MonoBehaviour {
     public GameObject confirmBoxEnd;
     public float confirmArrowPos;
 
+    public GameObject mainBattleUI;
+    public bool attackMenu;
+    public GameObject attackMenuUI;
+    public bool magicMenu;
+    public GameObject magicMenuUI;
+    public bool itemMenu;
+    public GameObject itemMenuUI;
+
     // Use this for initialization
     void Start () {
-        //SelectableElementList = new List<GameObject>();
-        this.transform.position = startPos.transform.position;
+        if (UIBattle == false)
+        {
+            //SelectableElementList = new List<GameObject>();
+            this.transform.position = startPos.transform.position;
 
-        // Calculate the journey length.
-        journeyLength = Vector3.Distance(startPos.transform.position, endPos.transform.position);
+            // Calculate the journey length.
+            journeyLength = Vector3.Distance(startPos.transform.position, endPos.transform.position);
 
-        //confirmBox.transform.position = confirmBoxStart.transform.position;
-        QuitBoxSwap();
+            //confirmBox.transform.position = confirmBoxStart.transform.position;
+            QuitBoxSwap();
+
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (overworldUiOn == true)
-        {
-
-
-            //Debug.Log("Vertical Axis: " + Input.GetAxisRaw("Vertical").ToString() + " | Horizontal Axis: " + Input.GetAxisRaw("Horizontal").ToString());
+        
+         //Debug.Log("Vertical Axis: " + Input.GetAxisRaw("Vertical").ToString() + " | Horizontal Axis: " + Input.GetAxisRaw("Horizontal").ToString());
             if (UIBattle == false)
             {
-                if (confirmExit == true)
+                if (overworldUiOn == true)
                 {
-                    if ((Input.GetAxisRaw("Horizontal") > 0.001f) && Input.GetButtonDown("Horizontal") == true)
+                    if (confirmExit == true)
                     {
-                        if(confirmArrowPos+1 == 1)
+                        if ((Input.GetAxisRaw("Horizontal") > 0.001f) && Input.GetButtonDown("Horizontal") == true)
                         {
-                            confirmArrowPos++;
+                            if (confirmArrowPos + 1 == 1)
+                            {
+                                confirmArrowPos++;
+                            }
                         }
-                    }
-                    else if ((Input.GetAxisRaw("Horizontal") < 0.001f) && Input.GetButtonDown("Horizontal") == true)
-                    {
-                        if(confirmArrowPos - 1 == 0)
+                        else if ((Input.GetAxisRaw("Horizontal") < 0.001f) && Input.GetButtonDown("Horizontal") == true)
                         {
-                            confirmArrowPos--;
+                            if (confirmArrowPos - 1 == 0)
+                            {
+                                confirmArrowPos--;
+                            }
                         }
-                    }
-                }
-                else
-                {
-
-                    if ((Input.GetAxisRaw("Vertical") > 0.001f) && selectionInputHeld == false && Input.GetButtonDown("Vertical") == true)
-                    {
-                        if (currentCursorPos - 1 < 0)
-                        {
-                            currentCursorPos = SelectableElementList.Count - 1;
-                        }
-                        else
-                        {
-                            currentCursorPos--;
-                        }
-                        selectionInputHeld = true;
-
-                    }
-                    else if ((Input.GetAxisRaw("Vertical") < -0.001f) && selectionInputHeld == false && Input.GetButtonDown("Vertical") == true)
-                    {
-                        if (currentCursorPos + 1 > SelectableElementList.Count - 1)
-                        {
-                            currentCursorPos = 0;
-                        }
-                        else
-                        {
-                            currentCursorPos++;
-                        }
-                        selectionInputHeld = true;
-
                     }
                     else
                     {
-                        //Nothing
-                        selectionInputHeld = false;
+
+                        if ((Input.GetAxisRaw("Vertical") > 0.001f) && selectionInputHeld == false && Input.GetButtonDown("Vertical") == true)
+                        {
+                            if (currentCursorPos - 1 < 0)
+                            {
+                                currentCursorPos = SelectableElementList.Count - 1;
+                            }
+                            else
+                            {
+                                currentCursorPos--;
+                            }
+                            selectionInputHeld = true;
+
+                        }
+                        else if ((Input.GetAxisRaw("Vertical") < -0.001f) && selectionInputHeld == false && Input.GetButtonDown("Vertical") == true)
+                        {
+                            if (currentCursorPos + 1 > SelectableElementList.Count - 1)
+                            {
+                                currentCursorPos = 0;
+                            }
+                            else
+                            {
+                                currentCursorPos++;
+                            }
+                            selectionInputHeld = true;
+
+                        }
+                        else
+                        {
+                            //Nothing
+                            selectionInputHeld = false;
+                        }
+
                     }
-
                 }
-
             }
             else
             {
@@ -201,6 +213,28 @@ public class UI_Controller : MonoBehaviour {
                         QuitBoxSwap();
                     }
                 }
+                else if(SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Attack")
+                {
+                    mainBattleUI.SetActive(false);
+                    attackMenuUI.SetActive(true);
+                }
+                else if(SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Magic")
+                {
+                    mainBattleUI.SetActive(false);
+                    magicMenuUI.SetActive(true);
+                }
+                else if(SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Item")
+                {
+                    mainBattleUI.SetActive(false);
+                    itemMenuUI.SetActive(true);
+                }
+                else if(SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Run")
+                {
+                    mainBattleUI.SetActive(true);
+                    attackMenuUI.SetActive(false);
+                    magicMenuUI.SetActive(false);
+                    itemMenuUI.SetActive(false);
+                }
                 else
                 {
                     if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Quit")
@@ -213,7 +247,7 @@ public class UI_Controller : MonoBehaviour {
             }
 
 
-        }
+        
         else
         {
 
@@ -221,39 +255,43 @@ public class UI_Controller : MonoBehaviour {
 
         if (Input.GetButtonDown("Cancel"))
         {
-            if (confirmExit)
+            if(UIBattle == true)
             {
-                confirmExit = false;
-                QuitBoxSwap();
-            }
-            else
-            {
-
-                if (overworldUiOn)
+                if (confirmExit)
                 {
-                    overworldUiOn = false;
-                    startTime = Time.time;
-
-
-                    //Debug.Log("Calling coroutine");
-                    StopCoroutine(UiTransfer());
-                    StartCoroutine(UiTransfer());
-
+                    confirmExit = false;
+                    QuitBoxSwap();
                 }
                 else
                 {
-                    overworldUiOn = true;
-                    startTime = Time.time;
-                    //Debug.Log("Calling coroutine");
 
-                    StopCoroutine(UiTransfer());
-                    StartCoroutine(UiTransfer());
+                    if (overworldUiOn)
+                    {
+                        overworldUiOn = false;
+                        startTime = Time.time;
+
+
+                        //Debug.Log("Calling coroutine");
+                        StopCoroutine(UiTransfer());
+                        StartCoroutine(UiTransfer());
+
+                    }
+                    else
+                    {
+                        overworldUiOn = true;
+                        startTime = Time.time;
+                        //Debug.Log("Calling coroutine");
+
+                        StopCoroutine(UiTransfer());
+                        StartCoroutine(UiTransfer());
+                    }
                 }
+
             }
         }
 
         //Debug.Log(overworldUiOn.ToString());
-        Debug.Log(confirmExit.ToString());
+        //Debug.Log(confirmExit.ToString());
     }
 
     IEnumerator UiTransfer()
