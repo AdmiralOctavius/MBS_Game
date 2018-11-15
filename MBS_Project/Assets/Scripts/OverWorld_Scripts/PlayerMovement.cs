@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
+    public GameObject UITest;
+
+
+
 	// Use this for initialization
 	void Start ()
     {
@@ -14,24 +18,27 @@ public class PlayerMovement : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-        if (Input.GetAxisRaw("Vertical") == 1)
+        if (UITest.GetComponent<UI_Controller>().overworldUiOn == false)
         {
-            gameObject.transform.position += new Vector3(0, 0.04f, 0);
-        }
+            if (Input.GetAxisRaw("Vertical") == 1)
+            {
+                gameObject.transform.position += new Vector3(0, 0.04f, 0);
+            }
 
-        else if (Input.GetAxisRaw("Vertical") == -1)
-        {
-            gameObject.transform.position += new Vector3(0, -0.04f, 0);
-        }
+            else if (Input.GetAxisRaw("Vertical") == -1)
+            {
+                gameObject.transform.position += new Vector3(0, -0.04f, 0);
+            }
 
-        if (Input.GetAxisRaw("Horizontal") == 1)
-        {
-            gameObject.transform.position += new Vector3(0.04f, 0, 0);
-        }
+            if (Input.GetAxisRaw("Horizontal") == 1)
+            {
+                gameObject.transform.position += new Vector3(0.04f, 0, 0);
+            }
 
-        if (Input.GetAxisRaw("Horizontal") == -1)
-        {
-            gameObject.transform.position += new Vector3(-0.04f, 0, 0);
+            if (Input.GetAxisRaw("Horizontal") == -1)
+            {
+                gameObject.transform.position += new Vector3(-0.04f, 0, 0);
+            }
         }
     }
 }
