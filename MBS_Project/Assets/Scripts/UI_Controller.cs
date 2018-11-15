@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class UI_Controller : MonoBehaviour {
 
     public List<GameObject> SelectableElementList;
+    //For Battle scene
+
 
     public int currentCursorPos = 0;
     public bool selectionInputHeld = false;
@@ -28,41 +30,51 @@ public class UI_Controller : MonoBehaviour {
     public GameObject confirmBoxEnd;
     public float confirmArrowPos;
 
+    public GameObject mainBattleUI;
+    public bool attackMenu;
+    public GameObject attackMenuUI;
+    public bool magicMenu;
+    public GameObject magicMenuUI;
+    public bool itemMenu;
+    public GameObject itemMenuUI;
+
     // Use this for initialization
     void Start () {
-        //SelectableElementList = new List<GameObject>();
-        this.transform.position = startPos.transform.position;
+        if (UIBattle == false)
+        {
+            //SelectableElementList = new List<GameObject>();
+            this.transform.position = startPos.transform.position;
 
-        // Calculate the journey length.
-        journeyLength = Vector3.Distance(startPos.transform.position, endPos.transform.position);
+            // Calculate the journey length.
+            journeyLength = Vector3.Distance(startPos.transform.position, endPos.transform.position);
 
-        //confirmBox.transform.position = confirmBoxStart.transform.position;
-        QuitBoxSwap();
+            //confirmBox.transform.position = confirmBoxStart.transform.position;
+            QuitBoxSwap();
+
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (overworldUiOn == true)
+        
+     //Debug.Log("Vertical Axis: " + Input.GetAxisRaw("Vertical").ToString() + " | Horizontal Axis: " + Input.GetAxisRaw("Horizontal").ToString());
+        if (UIBattle == false)
         {
-
-
-            //Debug.Log("Vertical Axis: " + Input.GetAxisRaw("Vertical").ToString() + " | Horizontal Axis: " + Input.GetAxisRaw("Horizontal").ToString());
-            if (UIBattle == false)
+            if (overworldUiOn == true)
             {
                 if (confirmExit == true)
                 {
                     if ((Input.GetAxisRaw("Horizontal") > 0.001f) && Input.GetButtonDown("Horizontal") == true)
                     {
-                        if(confirmArrowPos+1 == 1)
+                        if (confirmArrowPos + 1 == 1)
                         {
                             confirmArrowPos++;
                         }
                     }
                     else if ((Input.GetAxisRaw("Horizontal") < 0.001f) && Input.GetButtonDown("Horizontal") == true)
                     {
-                        if(confirmArrowPos - 1 == 0)
+                        if (confirmArrowPos - 1 == 0)
                         {
                             confirmArrowPos--;
                         }
@@ -104,116 +116,153 @@ public class UI_Controller : MonoBehaviour {
                     }
 
                 }
+            }
+        }
+        else
+        {
+            /**
+             * 
+             *      0 | 1
+             *      2 | 3
+             * 
+             * */
+
+            if ((Input.GetAxisRaw("Horizontal") > 0.001f) && Input.GetButtonDown("Horizontal") == true)
+            {
+                //Limit to either 0 - 1 or 2-3
+                if (currentCursorPos + 1 == 1 || currentCursorPos + 1 == 3)
+                {
+                    currentCursorPos++;
+                }
+                else
+                {
+                    //Nothing
+                }
+
+            }
+            else if ((Input.GetAxisRaw("Horizontal") < 0.001f) && Input.GetButtonDown("Horizontal") == true)
+            {
+                //Limit to either 0 - 1 or 2-3
+                if (currentCursorPos - 1 == 0 || currentCursorPos - 1 == 2)
+                {
+                    currentCursorPos--;
+                }
+                else
+                {
+                    //Nothing
+                }
 
             }
             else
             {
-                /**
-                 * 
-                 *      0 | 1
-                 *      2 | 3
-                 * 
-                 * */
-
-                if ((Input.GetAxisRaw("Horizontal") > 0.001f) && Input.GetButtonDown("Horizontal") == true)
-                {
-                    //Limit to either 0 - 1 or 2-3
-                    if (currentCursorPos + 1 == 1 || currentCursorPos + 1 == 3)
-                    {
-                        currentCursorPos++;
-                    }
-                    else
-                    {
-                        //Nothing
-                    }
-
-                }
-                else if ((Input.GetAxisRaw("Horizontal") < 0.001f) && Input.GetButtonDown("Horizontal") == true)
-                {
-                    //Limit to either 0 - 1 or 2-3
-                    if (currentCursorPos - 1 == 0 || currentCursorPos - 1 == 2)
-                    {
-                        currentCursorPos--;
-                    }
-                    else
-                    {
-                        //Nothing
-                    }
-
-                }
-                else
-                {
-                    //Nothing
-                    //selectionInputHeld = false;
-                }
-
-                if ((Input.GetAxisRaw("Vertical") > 0.001f) && Input.GetButtonDown("Vertical") == true)
-                {
-                    //Need to limit this to 0th and 2nd position or 1st and 3rd pos.
-
-                    if (currentCursorPos - 2 == 0 || currentCursorPos - 2 == 1)
-                    {
-                        currentCursorPos = currentCursorPos - 2;
-                    }
-                    else
-                    {
-
-                    }
-
-                }
-                else if ((Input.GetAxisRaw("Vertical") < -0.001f) && Input.GetButtonDown("Vertical") == true)
-                {
-                    //Need to limit this to 0th and 2nd position or 1st and 3rd pos.
-                    if (currentCursorPos + 2 == 2 || currentCursorPos + 2 == 3)
-                    {
-                        currentCursorPos = currentCursorPos + 2;
-                    }
-                    else
-                    {
-
-                    }
-
-                }
-                else
-                {
-                    //Nothing
-                    //selectionInputHeld = false;
-                }
-
-
+                //Nothing
+                //selectionInputHeld = false;
             }
 
-            if (Input.GetButtonDown("Submit") == true)
+            if ((Input.GetAxisRaw("Vertical") > 0.001f) && Input.GetButtonDown("Vertical") == true)
             {
-                Debug.Log("Got the submit on element: " + currentCursorPos + ". Which Should call: " + SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text);
-                //This is where the call to a specific action would be on the ActionMenu
-                if (confirmExit == true)
+                //Need to limit this to 0th and 2nd position or 1st and 3rd pos.
+
+                if (currentCursorPos - 2 == 0 || currentCursorPos - 2 == 1)
                 {
-                    if(confirmArrowPos == 0)
-                    {
-                        //Exit
-                        Debug.Log("Exit point");
-                    }
-                    else
-                    {
-                        //Return to normal
-                        confirmExit = false;
-                        QuitBoxSwap();
-                    }
+                    currentCursorPos = currentCursorPos - 2;
                 }
                 else
                 {
-                    if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Quit")
-                    {
-                        Debug.Log("Got here");
-                        confirmExit = true;
-                        QuitBoxSwap();
-                    }
+
                 }
+
+            }
+            else if ((Input.GetAxisRaw("Vertical") < -0.001f) && Input.GetButtonDown("Vertical") == true)
+            {
+                //Need to limit this to 0th and 2nd position or 1st and 3rd pos.
+                if (currentCursorPos + 2 == 2 || currentCursorPos + 2 == 3)
+                {
+                    currentCursorPos = currentCursorPos + 2;
+                }
+                else
+                {
+
+                }
+
+            }
+            else
+            {
+                //Nothing
+                //selectionInputHeld = false;
             }
 
 
         }
+
+        if (Input.GetButtonDown("Submit") == true)
+        {
+        //Debug.Log("Got the submit on element: " + currentCursorPos + ". Which Should call: " + SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text);
+        //This is where the call to a specific action would be on the ActionMenu
+        if (attackMenu || magicMenu || itemMenu)
+        {
+
+        }
+        else
+        {
+
+            if (confirmExit == true)
+            {
+                if (confirmArrowPos == 0)
+                {
+                    //Exit
+                    Debug.Log("Exit point");
+                }
+                else
+                {
+                    //Return to normal
+                    confirmExit = false;
+                    QuitBoxSwap();
+                }
+            }
+            else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Attack")
+            {
+                mainBattleUI.SetActive(false);
+                attackMenuUI.SetActive(true);
+                attackMenu = true;
+            }
+            else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Magic")
+            {
+                mainBattleUI.SetActive(false);
+                magicMenuUI.SetActive(true);
+                magicMenu = true;
+            }
+            else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Item")
+            {
+                mainBattleUI.SetActive(false);
+                itemMenuUI.SetActive(true);
+                itemMenu = true;
+            }
+            else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Run")
+            {
+                mainBattleUI.SetActive(true);
+                attackMenuUI.SetActive(false);
+                magicMenuUI.SetActive(false);
+                itemMenuUI.SetActive(false);
+
+                itemMenu = false;
+                magicMenu = false;
+                attackMenu = false;
+            }
+            else
+            {
+                if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Quit")
+                {
+                    Debug.Log("Got here");
+                    confirmExit = true;
+                    QuitBoxSwap();
+                }
+            }
+        }
+        }
+
+
+    
         else
         {
 
@@ -221,39 +270,43 @@ public class UI_Controller : MonoBehaviour {
 
         if (Input.GetButtonDown("Cancel"))
         {
-            if (confirmExit)
+            if(UIBattle == true)
             {
-                confirmExit = false;
-                QuitBoxSwap();
-            }
-            else
-            {
-
-                if (overworldUiOn)
+                if (confirmExit)
                 {
-                    overworldUiOn = false;
-                    startTime = Time.time;
-
-
-                    //Debug.Log("Calling coroutine");
-                    StopCoroutine(UiTransfer());
-                    StartCoroutine(UiTransfer());
-
+                    confirmExit = false;
+                    QuitBoxSwap();
                 }
                 else
                 {
-                    overworldUiOn = true;
-                    startTime = Time.time;
-                    //Debug.Log("Calling coroutine");
 
-                    StopCoroutine(UiTransfer());
-                    StartCoroutine(UiTransfer());
+                    if (overworldUiOn)
+                    {
+                        overworldUiOn = false;
+                        startTime = Time.time;
+
+
+                        //Debug.Log("Calling coroutine");
+                        StopCoroutine(UiTransfer());
+                        StartCoroutine(UiTransfer());
+
+                    }
+                    else
+                    {
+                        overworldUiOn = true;
+                        startTime = Time.time;
+                        //Debug.Log("Calling coroutine");
+
+                        StopCoroutine(UiTransfer());
+                        StartCoroutine(UiTransfer());
+                    }
                 }
+
             }
         }
 
         //Debug.Log(overworldUiOn.ToString());
-        Debug.Log(confirmExit.ToString());
+        //Debug.Log(confirmExit.ToString());
     }
 
     IEnumerator UiTransfer()
