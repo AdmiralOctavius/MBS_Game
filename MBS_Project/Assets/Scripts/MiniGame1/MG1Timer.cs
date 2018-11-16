@@ -12,7 +12,7 @@ public class MG1Timer : MonoBehaviour
 
 	void Start ()
     {
-        timeLeft = 3.0f;
+        timeLeft = 30.0f;
         text = GetComponent<Text>();
     }
 

@@ -9,7 +9,7 @@ public class MG1ButtonScript : MonoBehaviour
 
     public void Play()
     {
-        
+        Debug.Log("We clicked the play button");
         SceneManager.LoadScene("JennaMiniGame");
     }
 
