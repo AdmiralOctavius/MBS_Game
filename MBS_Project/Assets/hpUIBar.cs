@@ -17,7 +17,7 @@ public class hpUIBar : MonoBehaviour {
 	void FixedUpdate () {
         if(hptemp != 0)
         {
-            hptemp = hptemp - 1f;
+            hptemp = hptemp - 1;
             slideme.value = hptemp;
         }
 
