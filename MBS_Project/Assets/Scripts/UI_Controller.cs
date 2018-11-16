@@ -248,13 +248,23 @@ public class UI_Controller : MonoBehaviour {
                     if (currentCursorPos == 0)
                     {
                         Debug.Log("This gets attack1");
+                        combatController.GetComponent<CombatScript>().CombatForAttack();
+                        Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
+                        Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);
+
                     }
                     else if (currentCursorPos == 1)
                     {
+                        combatController.GetComponent<CombatScript>().CombatForAttack();
+                        Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
+                        Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);
 
                     }
-                    else if(currentCursorPos == 2)
+                    else if (currentCursorPos == 2)
                     {
+                        combatController.GetComponent<CombatScript>().CombatForAttack();
+                        Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
+                        Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);
 
                     }
                     else
@@ -273,6 +283,10 @@ public class UI_Controller : MonoBehaviour {
                 {
                     if (currentCursorPos == 0)
                     {
+                        combatController.GetComponent<CombatScript>().EnemenyAttacking();
+                        combatController.GetComponent<CombatScript>().Breath();
+                        Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
+                        Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);
 
                     }
                     else if (currentCursorPos == 1)

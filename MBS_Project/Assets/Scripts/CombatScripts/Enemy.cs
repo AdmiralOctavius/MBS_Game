@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int enemyHp = 25;
-    public int enemyAttack = 5;
+    public int enemyAttack = 10;
     public int enemyDeffense = 5;
     public int enemySpeed = 5;
 
