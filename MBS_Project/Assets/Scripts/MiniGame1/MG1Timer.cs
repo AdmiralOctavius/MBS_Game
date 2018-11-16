@@ -22,6 +22,9 @@ public class MG1Timer : MonoBehaviour
         text.text = "Time Remaining: " + timeLeft.ToString("0.##");
 
         if (timeLeft <= 0.01f)
+        {
+            GetComponent<PlayerVariables>().SetPlayerVariable(0, 1);
             SceneManager.LoadScene("MG1YouWin");
+        }
     }
 }
