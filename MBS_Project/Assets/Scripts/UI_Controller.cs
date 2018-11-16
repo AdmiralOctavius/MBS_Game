@@ -418,7 +418,7 @@ public class UI_Controller : MonoBehaviour {
 
             }
 
-            else if(UIBattle == true)
+            else if(UIBattle == false)
             {
                 if (confirmExit)
                 {

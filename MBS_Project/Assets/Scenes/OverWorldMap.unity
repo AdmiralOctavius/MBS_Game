@@ -210,6 +210,21 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114340337615654082, guid: 7385162b69277d44eba84e6510271f9e,
+        type: 2}
+      propertyPath: UIBattle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114340337615654082, guid: 7385162b69277d44eba84e6510271f9e,
+        type: 2}
+      propertyPath: overworldUiOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114340337615654082, guid: 7385162b69277d44eba84e6510271f9e,
+        type: 2}
+      propertyPath: menuUI
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7385162b69277d44eba84e6510271f9e, type: 2}
   m_IsPrefabAsset: 0
