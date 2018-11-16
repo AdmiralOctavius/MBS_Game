@@ -12,12 +12,14 @@ public class MGPlayerScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+    
         if (laser == null)
             Debug.Log("You forgot to hook a laser prefab into this variable dummy!");
         else if (Input.GetAxis("Laser") > 0)
