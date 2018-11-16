@@ -6,9 +6,8 @@ public class MG1AirScript : MonoBehaviour
 {
     void Start()
     {
-        Invoke("DieOff", .5f);//Handy function for calling another function after x seconds
+        Invoke("DieOff", .5f);
 
-        //Addforce doesn't work for a Kinematic rigid body, but you can change its velocity directly.
         gameObject.GetComponent<Rigidbody2D>().velocity = (10 * gameObject.transform.up);
     }
 
