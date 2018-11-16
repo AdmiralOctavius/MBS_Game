@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI_Controller : MonoBehaviour {
 
@@ -319,11 +320,11 @@ public class UI_Controller : MonoBehaviour {
            {
                 if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Play")
                 {
-                        //Do the stuff
+                        SceneManager.LoadScene("OverWorldMap");
                 }
                 else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Quit")
                 {
-                        //Do Other stuff
+                        Application.Quit();
                 }
                         
             }
