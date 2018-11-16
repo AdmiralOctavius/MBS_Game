@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MGBalloonScript : MonoBehaviour {
+public class MG1BalloonScript : MonoBehaviour {
 
     Vector2 respawnPoint;
 
-    // Use this for initialization
     void Start () {
-       // Globals.playerObject = gameObject;//4th way to reference a gameobject from another - have the gameobject tell the other one about itself instead of vice versa
         respawnPoint = transform.position;
     }
 	
-	// Update is called once per frame
 	void Update ()
     {
         

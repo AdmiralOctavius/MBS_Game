@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MGAirScript : MonoBehaviour
+public class MG1AirScript : MonoBehaviour
 {
     void Start()
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MGPlayerScript : MonoBehaviour
+public class MG1PlayerScript : MonoBehaviour
 {
     public GameObject laser;
     public float fireRate = 2;//lasers per second

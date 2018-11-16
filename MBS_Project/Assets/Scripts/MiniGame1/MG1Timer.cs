@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class MGTimer : MonoBehaviour
+public class MG1Timer : MonoBehaviour
 {
     private float timeLeft;
 
