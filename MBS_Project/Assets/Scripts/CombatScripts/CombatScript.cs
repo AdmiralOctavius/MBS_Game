@@ -86,13 +86,20 @@ public class CombatScript : MonoBehaviour
     public void Breath(int choice)
     {
         //works
-        
-        combatText.text = "The player takes deep breaths, healing them for " + 15.ToString() + " health!";
-        StartCoroutine(CombatText(choice));
+        if(GetComponent<PlayerVariables>().BeatMinigame == 1)
+        {
+            combatText.text = "The player takes deep breaths, healing them for " + 15.ToString() + " health!";
+            StartCoroutine(CombatText(choice));
        
 
-        playerHp += 15;
-        playerHPBar.value = playerHp;
+            playerHp += 15;
+            playerHPBar.value = playerHp;
+        }
+        else
+        {
+            combatText.text = "You do not have this ability.";
+            StartCoroutine(CombatText(choice));
+        }
     }
 
     //Enemey Attack Function

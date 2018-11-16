@@ -283,11 +283,17 @@ public class UI_Controller : MonoBehaviour {
                 {
                     if (currentCursorPos == 0)
                     {
-                        combatController.GetComponent<CombatScript>().EnemenyAttacking(1);
-                        //combatController.GetComponent<CombatScript>().Breath();
-                        Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
-                        Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);
-
+                        if (GetComponent<PlayerVariables>().BeatMinigame == 1)
+                        {
+                            combatController.GetComponent<CombatScript>().EnemenyAttacking(1);
+                            //combatController.GetComponent<CombatScript>().Breath();
+                            Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
+                            Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);
+                        }
+                        else
+                        {
+                            combatController.GetComponent<CombatScript>().Breath(3);
+                        }
                     }
                     else if (currentCursorPos == 1)
                     {
