@@ -695,6 +695,7 @@ GameObject:
   - component: {fileID: 303721679}
   - component: {fileID: 303721683}
   - component: {fileID: 303721684}
+  - component: {fileID: 303721685}
   m_Layer: 0
   m_Name: NPC (1)
   m_TagString: Untagged
@@ -840,6 +841,18 @@ MonoBehaviour:
   speed: 5
   startTime: 0
   targetImage: {fileID: 1514273717}
+--- !u!114 &303721685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 303721678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 589c4d4b902bafc40baa7a54a71446c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 1605168336}
 --- !u!1 &753739556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,6 +1339,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 303721682}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1605168336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1605168338}
+  - component: {fileID: 1605168337}
+  m_Layer: 0
+  m_Name: StatHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1605168337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1605168336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0219f6cecc461439bcbbc8b377d4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BeatMinigame: 0
+  PlayerAttack: 0
+  PlayerHP: 0
+  PlayerDefense: 0
+  PlayerSpeed: 0
+--- !u!4 &1605168338
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1605168336}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.9266336, y: -1.113384, z: -0.020507812}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1646414275
 GameObject:
