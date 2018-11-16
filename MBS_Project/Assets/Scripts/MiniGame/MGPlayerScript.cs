@@ -38,25 +38,15 @@ public class MGPlayerScript : MonoBehaviour
     }
 
     void FixedUpdate()
-    {/*
-        if (Input.GetAxisRaw("Vertical") == 1)
-        {
-            gameObject.transform.position += new Vector3(0, 0.04f, 0);
-        }
-
-        else if (Input.GetAxisRaw("Vertical") == -1)
-        {
-            gameObject.transform.position += new Vector3(0, -0.04f, 0);
-        }*/
-
+    {
         if (Input.GetAxisRaw("Horizontal") == 1)
         {
-            gameObject.transform.position += new Vector3(0.04f, 0, 0);
+            gameObject.transform.position += new Vector3(0.1f, 0, 0);
         }
 
         if (Input.GetAxisRaw("Horizontal") == -1)
         {
-            gameObject.transform.position += new Vector3(-0.04f, 0, 0);
+            gameObject.transform.position += new Vector3(-0.1f, 0, 0);
         }
 
         
