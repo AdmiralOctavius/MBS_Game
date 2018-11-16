@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MG1ButtonScript : MonoBehaviour
 {
-    private bool isPlay = true;
+    public bool isPlay = true;
 
     public void Play()
     {

@@ -242,7 +242,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Main Menu
+  m_Text: Mini Game
 --- !u!222 &711452931
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -604,7 +604,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Directions: '
+  m_Text: 'Directions: press space to release a burst of air
+
+    abd keep the balloon in the air for as long as
+
+    possible! Use arrow keys to move left and right!'
 --- !u!222 &1454245587
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ using UnityEngine;
 public class MG1Timer : MonoBehaviour
 {
     private float timeLeft;
+    //private bool haveWon;
 
     Text text;
 
@@ -14,6 +15,8 @@ public class MG1Timer : MonoBehaviour
     {
         timeLeft = 30.0f;
         text = GetComponent<Text>();
+
+        //haveWon = false;
     }
 
     void Update ()
@@ -25,6 +28,7 @@ public class MG1Timer : MonoBehaviour
         {
             GetComponent<PlayerVariables>().SetPlayerVariable(0, 1);
             SceneManager.LoadScene("MG1YouWin");
+            //haveWon = true;
         }
     }
 }
