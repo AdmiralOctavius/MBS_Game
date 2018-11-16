@@ -8,8 +8,8 @@ Oh, come on, it'll just take a second!
 >No
 Oh, cool! So here's the deal...
 
-"Despite already having so much on your plate already, you took on the favor... suddenly, the world melts around you..."
+*Despite already having so much on your plate already, you took on the favor... suddenly, the world melts around you...*
 
-"The horrors of the mind, the terrors of the body, the stigma of the soul, emerge..."
+*The horrors of the mind, the terrors of the body, the stigma of the soul, emerge...*
 
-Battle!
+Battle! -> battleScene after you hit enter

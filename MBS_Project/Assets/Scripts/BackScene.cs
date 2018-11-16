@@ -12,7 +12,14 @@ public class BackScene : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //For debugging purposes, this will be the method used until controller is implemented
         if (Input.GetMouseButtonDown(0))
+        {
+            SceneManager.LoadScene("Visual 1");
+        }
+
+        //Main method for changing scene
+        if (Input.GetButtonDown("Submit"))
         {
             SceneManager.LoadScene("Visual 1");
         }
