@@ -4,27 +4,28 @@ using UnityEngine;
 
 public class MG1PlayerScript : MonoBehaviour
 {
-    public GameObject laser;
-    public float fireRate = 2;//lasers per second
+    public GameObject puff;
+    public float puffRate = 2;
 
-    private float lastFireTime = float.MinValue;
+    private float lastPuffTime = float.MinValue;
 
-    // Use this for initialization
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-       if (Input.GetAxis("Laser") > 0)
+        gameObject.GetComponent<Rigidbody2D>().velocity = (0 * gameObject.transform.up);
+
+
+        if (Input.GetAxis("Jump") > 0)
         {
-            if (Time.time - (1 / fireRate) > lastFireTime)
+            if (Time.time - (1 / puffRate) > lastPuffTime)
             {
-                GameObject obj = Instantiate(laser, transform.GetChild(0).position, transform.rotation);
+                GameObject obj = Instantiate(puff, transform.GetChild(0).position, transform.rotation);
                 obj.GetComponent<SpriteRenderer>().color = Random.ColorHSV(0, 1, 1, 1, 1, 1);
-                lastFireTime = Time.time;
+                lastPuffTime = Time.time;
             }
         }
     }
