@@ -283,8 +283,8 @@ public class UI_Controller : MonoBehaviour {
                 {
                     if (currentCursorPos == 0)
                     {
-                        combatController.GetComponent<CombatScript>().EnemenyAttacking();
-                        combatController.GetComponent<CombatScript>().Breath();
+                        combatController.GetComponent<CombatScript>().EnemenyAttacking(1);
+                        //combatController.GetComponent<CombatScript>().Breath();
                         Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
                         Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);
 
@@ -308,7 +308,7 @@ public class UI_Controller : MonoBehaviour {
                         magicMenu = false;
                         attackMenu = false;
                     }
-                }
+                }   
                 else if (itemMenu)
                 {
                     if (currentCursorPos == 0)

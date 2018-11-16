@@ -9,6 +9,8 @@ public class CombatScript : MonoBehaviour
     public GameObject textCanvis;
     public GameObject textElememnt;
     public Text combatText;
+    public Slider playerHPBar;
+    public Slider enemyHPBar;
     bool time = false;
 
 
@@ -36,6 +38,9 @@ public class CombatScript : MonoBehaviour
         enemyDeffense = GetComponent<Enemy>().enemyDeffense;
         enemySpeed = GetComponent<Enemy>().enemySpeed;
         enemyHp = GetComponent<Enemy>().enemyHp;
+
+        enemyHPBar.maxValue = enemyHp;
+        playerHPBar.maxValue = playerHp;
     }
 	
 	void Update ()
@@ -48,65 +53,81 @@ public class CombatScript : MonoBehaviour
         if(enemyHp <= 0)
         {
             combatText.text = "You defeated the enemy!";
-            StartCoroutine(CombatText());
-            StopCoroutine(CombatText());
+            StartCoroutine(CombatText(3));
+            //StopCoroutine(CombatText(3));
 
             SceneManager.LoadScene("OverWorldMap");
+        }
+        if(playerHp <= 0)
+        {
+            combatText.text = "Your emotions have consumed you!";
+            StartCoroutine(CombatText(3));
+            combatText.text = "You Lose";
+            StartCoroutine(CombatText(3));
+            SceneManager.LoadScene("Menu");
         }
     }
 
     //Player attack function
-    public void PlayerAttacking()
+    public void PlayerAttacking(int choice)
     {
         //StopCoroutine(CombatText());
         Debug.Log("The player attacked");
         combatText.text = "The player attacked the enemy and did " + playerAttack.ToString() + " damage!";
 
-        StartCoroutine(CombatText());
+        StartCoroutine(CombatText(choice));
         
 
         enemyHp -= playerAttack;
-        
+        enemyHPBar.value = enemyHp;
     }
 
     //Players Breath
-    public void Breath()
+    public void Breath(int choice)
     {
         //works
         
         combatText.text = "The player takes deep breaths, healing them for " + 15.ToString() + " health!";
-        StartCoroutine(CombatText());
+        StartCoroutine(CombatText(choice));
        
 
         playerHp += 15;
+        playerHPBar.value = playerHp;
     }
 
     //Enemey Attack Function
-    public void EnemenyAttacking()
+    public void EnemenyAttacking(int choice)
     {
         Debug.Log("The enemy attacked");
         combatText.text = "The enemy attacked the player and did " + enemyAttack.ToString() + " damage!";
-        StartCoroutine(CombatText());
+        StartCoroutine(CombatText(choice));
        
 
         playerHp -= enemyAttack;
+        playerHPBar.value = playerHp;
     }
 
     public void CombatForAttack()
     {
         if(playerSpeed >= enemySpeed)
         {
-            PlayerAttacking();
-            EnemenyAttacking();
+            PlayerAttacking(2);
+            
+            
         }
         else
         {
-            EnemenyAttacking();
-            PlayerAttacking();
+            EnemenyAttacking(0);
+            
         }
     }
 
-    IEnumerator CombatText()
+    public void ChoseBreath()
+    {
+        Breath(2);
+    }
+
+    IEnumerator CombatText(int choice)
     {
         bool something = true;
         while (something)
@@ -127,6 +148,24 @@ public class CombatScript : MonoBehaviour
                 time = false;
                 //combatText.text = "";
                 something = false;
+
+                //choice is equvilent to attacks,0 = pa, 1= b, 2= ea, 3 = null
+                if(choice == 0)
+                {
+                    PlayerAttacking(3);
+                }
+                else if(choice == 1)
+                {
+                    Breath(3);
+                }
+                else if(choice == 2)
+                {
+                    EnemenyAttacking(3);
+                }
+                else if( choice == 3)
+                {
+                    //Do nothing, coroutine ends
+                }
             }
 
         }
