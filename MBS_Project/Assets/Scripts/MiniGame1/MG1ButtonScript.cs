@@ -23,9 +23,9 @@ public class MG1ButtonScript : MonoBehaviour
         {
             if (isPlay == true)
                 Play();
+            else
+                Quit();
         }
-        else if (Input.GetButtonDown("Submit"))
-            Quit();
 
     }
 }
