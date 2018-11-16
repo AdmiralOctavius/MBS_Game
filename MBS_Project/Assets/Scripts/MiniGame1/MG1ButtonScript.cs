@@ -9,6 +9,7 @@ public class MG1ButtonScript : MonoBehaviour
 
     public void Play()
     {
+        
         SceneManager.LoadScene("JennaMiniGame");
     }
 
