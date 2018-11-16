@@ -40,6 +40,8 @@ public class UI_Controller : MonoBehaviour {
 
     public GameObject combatController;
 
+    public bool menuUI;
+
     // Use this for initialization
     void Start () {
         if (UIBattle == false)
@@ -116,6 +118,35 @@ public class UI_Controller : MonoBehaviour {
                         //Nothing
                         selectionInputHeld = false;
                     }
+
+                }
+            }
+            else if (menuUI)
+            {
+                if ((Input.GetAxisRaw("Vertical") > 0.001f) && selectionInputHeld == false && Input.GetButtonDown("Vertical") == true)
+                {
+                    if (currentCursorPos - 1 < 0)
+                    {
+                        currentCursorPos = SelectableElementList.Count - 1;
+                    }
+                    else
+                    {
+                        currentCursorPos--;
+                    }
+                    selectionInputHeld = true;
+
+                }
+                else if ((Input.GetAxisRaw("Vertical") < -0.001f) && selectionInputHeld == false && Input.GetButtonDown("Vertical") == true)
+                {
+                    if (currentCursorPos + 1 > SelectableElementList.Count - 1)
+                    {
+                        currentCursorPos = 0;
+                    }
+                    else
+                    {
+                        currentCursorPos++;
+                    }
+                    selectionInputHeld = true;
 
                 }
             }
@@ -284,6 +315,18 @@ public class UI_Controller : MonoBehaviour {
         }
         else
         {
+           if (menuUI)
+           {
+                if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Play")
+                {
+                        //Do the stuff
+                }
+                else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Quit")
+                {
+                        //Do Other stuff
+                }
+                        
+            }
 
             if (confirmExit == true)
             {
