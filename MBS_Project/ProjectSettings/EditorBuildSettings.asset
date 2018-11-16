@@ -21,8 +21,14 @@ EditorBuildSettings:
     path: Assets/Scenes/IsaacUIScene.unity
     guid: 5fe651a52d3a668448dddf9eb4ab216b
   - enabled: 1
-    path: Assets/Scenes/JennaMiniGame.unity
+    path: Assets/Scenes/MiniGame1/JennaMiniGame.unity
     guid: 6ca9c88e547d3264fa49e3c4ad81d8ed
+  - enabled: 1
+    path: Assets/Scenes/MiniGame1/MG1MainMenu.unity
+    guid: 0a3bfb8e49d61cd44ade99568a33c7dc
+  - enabled: 1
+    path: Assets/Scenes/MiniGame1/MG1YouWin.unity
+    guid: 206963add3963e64c960cb1a81597adb
   - enabled: 1
     path: Assets/Scenes/Visual 1.unity
     guid: 8e119d7504b4b4a4fb7bbdc75b5a6f1c
