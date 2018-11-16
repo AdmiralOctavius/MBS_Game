@@ -23,7 +23,7 @@ public class MiniGameTalkingScript : MonoBehaviour
     {
         if (Input.GetButton("Submit"))
         {
-            SceneManager.LoadScene("JennaMiniGame");
+            SceneManager.LoadScene("MG1MainMenu");
         }
     }
 
