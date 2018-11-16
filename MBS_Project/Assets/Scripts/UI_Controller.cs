@@ -46,14 +46,22 @@ public class UI_Controller : MonoBehaviour {
     void Start () {
         if (UIBattle == false)
         {
-            //SelectableElementList = new List<GameObject>();
-            this.transform.position = startPos.transform.position;
+            if (menuUI)
+            {
 
-            // Calculate the journey length.
-            journeyLength = Vector3.Distance(startPos.transform.position, endPos.transform.position);
+            }
+            else
+            {
+                //SelectableElementList = new List<GameObject>();
+                this.transform.position = startPos.transform.position;
 
-            //confirmBox.transform.position = confirmBoxStart.transform.position;
-            QuitBoxSwap();
+                // Calculate the journey length.
+                journeyLength = Vector3.Distance(startPos.transform.position, endPos.transform.position);
+
+                //confirmBox.transform.position = confirmBoxStart.transform.position;
+                QuitBoxSwap();
+
+            }
 
         }
     }
@@ -327,8 +335,10 @@ public class UI_Controller : MonoBehaviour {
                 }
                         
             }
+                else
+                {
 
-            if (confirmExit == true)
+                     if (confirmExit == true)
             {
                 if (confirmArrowPos == 0)
                 {
@@ -342,25 +352,25 @@ public class UI_Controller : MonoBehaviour {
                     QuitBoxSwap();
                 }
             }
-            else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Attack")
+                     else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Attack")
             {
                 mainBattleUI.SetActive(false);
                 attackMenuUI.SetActive(true);
                 attackMenu = true;
             }
-            else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Magic")
+                     else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Magic")
             {
                 mainBattleUI.SetActive(false);
                 magicMenuUI.SetActive(true);
                 magicMenu = true;
             }
-            else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Item")
+                     else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Item")
             {
                 mainBattleUI.SetActive(false);
                 itemMenuUI.SetActive(true);
                 itemMenu = true;
             }
-            else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Run")
+                     else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Run")
             {
                 mainBattleUI.SetActive(true);
                 attackMenuUI.SetActive(false);
@@ -371,7 +381,7 @@ public class UI_Controller : MonoBehaviour {
                 magicMenu = false;
                 attackMenu = false;
             }
-            else
+                     else
             {
                 if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Quit")
                 {
@@ -380,19 +390,20 @@ public class UI_Controller : MonoBehaviour {
                     QuitBoxSwap();
                 }
             }
+                }
+
         }
         }
 
-
-    
-        else
-        {
-
-        }
 
         if (Input.GetButtonDown("Cancel"))
         {
-            if(UIBattle == true)
+            if (menuUI)
+            {
+
+            }
+
+            else if(UIBattle == true)
             {
                 if (confirmExit)
                 {
