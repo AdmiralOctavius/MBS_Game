@@ -7,19 +7,22 @@ using UnityEngine;
 public class CombatScript : MonoBehaviour
 {
     public GameObject textCanvis;
+    public GameObject textElememnt;
     public Text combatText;
-    bool time = true;
+    bool time = false;
+
+
 
     //Im not calling GetComponent Every god damn time
-    int playerAttack;
-    int playerDeffense;
-    int playerSpeed;
-    int playerHp;
-
-    int enemyAttack;
-    int enemyDeffense;
-    int enemySpeed;
-    int enemyHp;
+    public int playerAttack;
+    public int playerDeffense;
+    public int playerSpeed;
+    public int playerHp;
+     
+    public int enemyAttack;
+    public int enemyDeffense;
+    public int enemySpeed;
+    public int enemyHp;
 
     void Start ()
     {
@@ -46,59 +49,87 @@ public class CombatScript : MonoBehaviour
         {
             combatText.text = "You defeated the enemy!";
             StartCoroutine(CombatText());
-
+            StopCoroutine(CombatText());
 
             SceneManager.LoadScene("OverWorldMap");
         }
     }
 
     //Player attack function
-    int PlayerAttacking()
+    public void PlayerAttacking()
     {
-        
+        //StopCoroutine(CombatText());
+        Debug.Log("The player attacked");
         combatText.text = "The player attacked the enemy and did " + playerAttack.ToString() + " damage!";
+
         StartCoroutine(CombatText());
+        
+
         enemyHp -= playerAttack;
-        return enemyHp;
+        
     }
 
     //Players Breath
-    int Breath()
+    public void Breath()
     {
         //works
-        combatText.text = "The player takes deep breaths, healing them for " + 6.ToString() + " health!";
+        
+        combatText.text = "The player takes deep breaths, healing them for " + 15.ToString() + " health!";
         StartCoroutine(CombatText());
-        playerHp += 6;
-        return playerHp;
+       
+
+        playerHp += 15;
     }
 
     //Enemey Attack Function
-    int EnemenyAttacking()
+    public void EnemenyAttacking()
     {
+        Debug.Log("The enemy attacked");
         combatText.text = "The enemy attacked the player and did " + enemyAttack.ToString() + " damage!";
         StartCoroutine(CombatText());
+       
+
         playerHp -= enemyAttack;
-        return playerHp;
+    }
+
+    public void CombatForAttack()
+    {
+        if(playerSpeed >= enemySpeed)
+        {
+            PlayerAttacking();
+            EnemenyAttacking();
+        }
+        else
+        {
+            EnemenyAttacking();
+            PlayerAttacking();
+        }
     }
 
     IEnumerator CombatText()
     {
-        //if false will show text and blank bacground
-        if(time == false)
+        bool something = true;
+        while (something)
         {
-            GameObject.FindGameObjectWithTag("TextArea").SetActive(true);
-            GameObject.FindGameObjectWithTag("CombatText").SetActive(true);
-            time = true;
-        }
-        //when true will disable text and backgrounf, se to false, and wipe text
-        else
-        {
-            GameObject.FindGameObjectWithTag("TextArea").SetActive(false);
-            GameObject.FindGameObjectWithTag("CombatText").SetActive(false);
-            time = false;
-            combatText.text = "";
+            //if false will show text and blank bacground
+            if(time == false)
+            {
+                textCanvis.SetActive(true);
+                textElememnt.SetActive(true);
+                time = true;
+                yield return new WaitForSeconds(2.5f); 
+            }
+            //when true will disable text and backgrounf, se to false, and wipe text
+            else
+            {
+                textCanvis.SetActive(false);
+                textElememnt.SetActive(false);
+                time = false;
+                //combatText.text = "";
+                something = false;
+            }
+
         }
 
-        yield return new WaitForSeconds(2.5f); 
     }
 }
