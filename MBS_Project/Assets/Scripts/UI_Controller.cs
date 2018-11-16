@@ -359,6 +359,7 @@ public class UI_Controller : MonoBehaviour {
                 {
                     //Exit
                     Debug.Log("Exit point");
+                            SceneManager.LoadScene("Menu");
                 }
                 else
                 {
