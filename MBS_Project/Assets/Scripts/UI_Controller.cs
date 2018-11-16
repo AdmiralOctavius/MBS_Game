@@ -169,7 +169,7 @@ public class UI_Controller : MonoBehaviour {
              * 
              * */
 
-            if ((Input.GetAxisRaw("Horizontal") > 0.001f) && Input.GetButtonDown("Horizontal") == true)
+            if (Input.GetAxisRaw("Horizontal") == 1)
             {
                 //Limit to either 0 - 1 or 2-3
                 if (currentCursorPos + 1 == 1 || currentCursorPos + 1 == 3)
@@ -182,7 +182,7 @@ public class UI_Controller : MonoBehaviour {
                 }
 
             }
-            else if ((Input.GetAxisRaw("Horizontal") < 0.001f) && Input.GetButtonDown("Horizontal") == true)
+            else if (Input.GetAxisRaw("Horizontal") == -1)
             {
                 //Limit to either 0 - 1 or 2-3
                 if (currentCursorPos - 1 == 0 || currentCursorPos - 1 == 2)
