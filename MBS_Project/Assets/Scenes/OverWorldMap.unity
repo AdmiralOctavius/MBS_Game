@@ -218,7 +218,7 @@ Prefab:
     - target: {fileID: 114340337615654082, guid: 7385162b69277d44eba84e6510271f9e,
         type: 2}
       propertyPath: overworldUiOn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114340337615654082, guid: 7385162b69277d44eba84e6510271f9e,
         type: 2}
