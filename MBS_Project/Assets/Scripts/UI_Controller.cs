@@ -38,6 +38,8 @@ public class UI_Controller : MonoBehaviour {
     public bool itemMenu;
     public GameObject itemMenuUI;
 
+    public GameObject combatController;
+
     // Use this for initialization
     void Start () {
         if (UIBattle == false)
@@ -197,11 +199,88 @@ public class UI_Controller : MonoBehaviour {
 
         if (Input.GetButtonDown("Submit") == true)
         {
-        //Debug.Log("Got the submit on element: " + currentCursorPos + ". Which Should call: " + SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text);
+        Debug.Log("Got the submit on element: " + currentCursorPos + ". Which Should call: " + SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text);
         //This is where the call to a specific action would be on the ActionMenu
         if (attackMenu || magicMenu || itemMenu)
         {
+                if (attackMenu)
+                {
+                    if (currentCursorPos == 0)
+                    {
+                        Debug.Log("This gets attack1");
+                    }
+                    else if (currentCursorPos == 1)
+                    {
 
+                    }
+                    else if(currentCursorPos == 2)
+                    {
+
+                    }
+                    else
+                    {
+                        mainBattleUI.SetActive(true);
+                        attackMenuUI.SetActive(false);
+                        magicMenuUI.SetActive(false);
+                        itemMenuUI.SetActive(false);
+
+                        itemMenu = false;
+                        magicMenu = false;
+                        attackMenu = false;
+                    }
+                }
+                else if (magicMenu)
+                {
+                    if (currentCursorPos == 0)
+                    {
+
+                    }
+                    else if (currentCursorPos == 1)
+                    {
+
+                    }
+                    else if (currentCursorPos == 2)
+                    {
+
+                    }
+                    else
+                    {
+                        mainBattleUI.SetActive(true);
+                        attackMenuUI.SetActive(false);
+                        magicMenuUI.SetActive(false);
+                        itemMenuUI.SetActive(false);
+
+                        itemMenu = false;
+                        magicMenu = false;
+                        attackMenu = false;
+                    }
+                }
+                else if (itemMenu)
+                {
+                    if (currentCursorPos == 0)
+                    {
+
+                    }
+                    else if (currentCursorPos == 1)
+                    {
+
+                    }
+                    else if (currentCursorPos == 2)
+                    {
+
+                    }
+                    else
+                    {
+                        mainBattleUI.SetActive(true);
+                        attackMenuUI.SetActive(false);
+                        magicMenuUI.SetActive(false);
+                        itemMenuUI.SetActive(false);
+
+                        itemMenu = false;
+                        magicMenu = false;
+                        attackMenu = false;
+                    }
+                }
         }
         else
         {
