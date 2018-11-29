@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerVariables : MonoBehaviour {
 
     public int BeatMinigame = 0;
+    public int BeatMinigame2 = 0;
+    public int BeatMinigame3 = 0;
+
     public int PlayerAttack = 0;
     public int PlayerHP = 0;
     public int PlayerDefense = 0;

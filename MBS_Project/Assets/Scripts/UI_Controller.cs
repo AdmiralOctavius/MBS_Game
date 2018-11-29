@@ -71,7 +71,7 @@ public class UI_Controller : MonoBehaviour {
     void Update()
     {
       
-     //Debug.Log("Vertical Axis: " + Input.GetAxisRaw("Vertical").ToString() + " | Horizontal Axis: " + Input.GetAxisRaw("Horizontal").ToString());
+        //Debug.Log("Vertical Axis: " + Input.GetAxisRaw("Vertical").ToString() + " | Horizontal Axis: " + Input.GetAxisRaw("Horizontal").ToString());
         if (UIBattle == false)
         {
             if (overworldUiOn == true)
@@ -362,63 +362,79 @@ public class UI_Controller : MonoBehaviour {
                 }
                         
             }
-                else
-                {
-
-                     if (confirmExit == true)
+            else
             {
-                if (confirmArrowPos == 0)
-                {
-                    //Exit
-                    Debug.Log("Exit point");
+
+                if (confirmExit == true)
+                    {
+                        if (confirmArrowPos == 0)
+                        {
+                            //Exit
+                            Debug.Log("Exit point");
                             SceneManager.LoadScene("Menu");
+                        }
+                        else
+                        {
+                            //Return to normal
+                            confirmExit = false;
+                            QuitBoxSwap();
+                        }
+                    }
+                else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Attack")
+                    {
+                        mainBattleUI.SetActive(false);
+                        attackMenuUI.SetActive(true);
+                        attackMenu = true;
+                    }
+                else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Item")
+                    {
+                        mainBattleUI.SetActive(false);
+                        itemMenuUI.SetActive(true);
+                        itemMenu = true;
+                    }
+                else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Run")
+                    {
+                        mainBattleUI.SetActive(true);
+                        attackMenuUI.SetActive(false);
+                        magicMenuUI.SetActive(false);
+                        itemMenuUI.SetActive(false);
+
+                        itemMenu = false;
+                        magicMenu = false;
+                        attackMenu = false;
+                    }
+                else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Magic" && (GetComponent<PlayerVariables>().BeatMinigame == 1))
+                {
+                        Debug.Log("Got here");
+                    mainBattleUI.SetActive(false);
+                    magicMenuUI.SetActive(true);
+                        if (GetComponent<PlayerVariables>().BeatMinigame != 1)
+                        {
+                            magicMenuUI.transform.GetChild(0).gameObject.SetActive(false);
+                        }
+
+                        if(GetComponent<PlayerVariables>().BeatMinigame2 != 1){
+                            magicMenuUI.transform.GetChild(1).gameObject.SetActive(false);
+                        }
+
+                        if(GetComponent<PlayerVariables>().BeatMinigame3 != 1){
+                            magicMenuUI.transform.GetChild(2).gameObject.SetActive(false);
+                        }
+
+                    magicMenu = true;
                 }
                 else
-                {
-                    //Return to normal
-                    confirmExit = false;
-                    QuitBoxSwap();
-                }
-            }
-                     else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Attack")
-            {
-                mainBattleUI.SetActive(false);
-                attackMenuUI.SetActive(true);
-                attackMenu = true;
-            }
-                     else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Magic")
-            {
-                mainBattleUI.SetActive(false);
-                magicMenuUI.SetActive(true);
-                magicMenu = true;
-            }
-                     else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Item")
-            {
-                mainBattleUI.SetActive(false);
-                itemMenuUI.SetActive(true);
-                itemMenu = true;
-            }
-                     else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Run")
-            {
-                mainBattleUI.SetActive(true);
-                attackMenuUI.SetActive(false);
-                magicMenuUI.SetActive(false);
-                itemMenuUI.SetActive(false);
+                    {
+                        if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Quit")
+                        {
+                            Debug.Log("Got here");
+                            confirmExit = true;
+                            QuitBoxSwap();
+                        }
+                    }
 
-                itemMenu = false;
-                magicMenu = false;
-                attackMenu = false;
+                
             }
-                     else
-            {
-                if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Quit")
-                {
-                    Debug.Log("Got here");
-                    confirmExit = true;
-                    QuitBoxSwap();
-                }
-            }
-                }
 
         }
         }
