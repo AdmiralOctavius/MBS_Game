@@ -237,7 +237,7 @@ public class UI_Controller : MonoBehaviour {
 
         }
 
-        if (Input.GetButtonDown("Submit") == true)
+        if (Input.GetButtonDown("Submit") == true && combatController.GetComponent<CombatScript>().time == false)
         {
         Debug.Log("Got the submit on element: " + currentCursorPos + ". Which Should call: " + SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text);
         //This is where the call to a specific action would be on the ActionMenu
@@ -248,6 +248,7 @@ public class UI_Controller : MonoBehaviour {
                     if (currentCursorPos == 0)
                     {
                         Debug.Log("This gets attack1");
+
                         combatController.GetComponent<CombatScript>().CombatForAttack();
                         Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
                         Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);

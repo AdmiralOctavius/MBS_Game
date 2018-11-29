@@ -11,7 +11,7 @@ public class CombatScript : MonoBehaviour
     public Text combatText;
     public Slider playerHPBar;
     public Slider enemyHPBar;
-    bool time = false;
+    public bool time = false;
 
 
 
@@ -76,7 +76,7 @@ public class CombatScript : MonoBehaviour
         combatText.text = "The player attacked the enemy and did " + playerAttack.ToString() + " damage!";
 
         StartCoroutine(CombatText(choice));
-        
+        //time = false;
 
         enemyHp -= playerAttack;
         enemyHPBar.value = enemyHp;
@@ -146,6 +146,7 @@ public class CombatScript : MonoBehaviour
                 textElememnt.SetActive(true);
                 time = true;
                 yield return new WaitForSeconds(2.5f); 
+
             }
             //when true will disable text and backgrounf, se to false, and wipe text
             else
