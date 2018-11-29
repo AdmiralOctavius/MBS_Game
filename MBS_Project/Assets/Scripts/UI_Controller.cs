@@ -70,7 +70,7 @@ public class UI_Controller : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        
+      
      //Debug.Log("Vertical Axis: " + Input.GetAxisRaw("Vertical").ToString() + " | Horizontal Axis: " + Input.GetAxisRaw("Horizontal").ToString());
         if (UIBattle == false)
         {
@@ -78,14 +78,14 @@ public class UI_Controller : MonoBehaviour {
             {
                 if (confirmExit == true)
                 {
-                    if ((Input.GetAxisRaw("Horizontal") > 0.001f) && Input.GetButtonDown("Horizontal") == true)
+                    if (Input.GetAxisRaw("Horizontal") == 1)
                     {
                         if (confirmArrowPos + 1 == 1)
                         {
                             confirmArrowPos++;
                         }
                     }
-                    else if ((Input.GetAxisRaw("Horizontal") < 0.001f) && Input.GetButtonDown("Horizontal") == true)
+                    else if (Input.GetAxisRaw("Horizontal") == -1)
                     {
                         if (confirmArrowPos - 1 == 0)
                         {
@@ -96,7 +96,7 @@ public class UI_Controller : MonoBehaviour {
                 else
                 {
 
-                    if ((Input.GetAxisRaw("Vertical") > 0.001f) && selectionInputHeld == false && Input.GetButtonDown("Vertical") == true)
+                    if (Input.GetAxisRaw("Vertical") == 1 && (selectionInputHeld != true))
                     {
                         if (currentCursorPos - 1 < 0)
                         {
@@ -109,7 +109,7 @@ public class UI_Controller : MonoBehaviour {
                         selectionInputHeld = true;
 
                     }
-                    else if ((Input.GetAxisRaw("Vertical") < -0.001f) && selectionInputHeld == false && Input.GetButtonDown("Vertical") == true)
+                    else if (Input.GetAxisRaw("Vertical") == -1 && (selectionInputHeld != true))
                     {
                         if (currentCursorPos + 1 > SelectableElementList.Count - 1)
                         {
@@ -122,17 +122,18 @@ public class UI_Controller : MonoBehaviour {
                         selectionInputHeld = true;
 
                     }
-                    else
+                    else if(Input.GetAxisRaw("Vertical") == 0)
                     {
                         //Nothing
                         selectionInputHeld = false;
                     }
-
+                    Debug.Log(Input.GetAxisRaw("Vertical").ToString());
+                    Debug.Log(selectionInputHeld.ToString());
                 }
             }
             else if (menuUI)
             {
-                if ((Input.GetAxisRaw("Vertical") > 0.001f) && selectionInputHeld == false && Input.GetButtonDown("Vertical") == true)
+                if (Input.GetAxisRaw("Vertical") == 1 && (selectionInputHeld != true))
                 {
                     if (currentCursorPos - 1 < 0)
                     {
@@ -142,10 +143,10 @@ public class UI_Controller : MonoBehaviour {
                     {
                         currentCursorPos--;
                     }
-                    selectionInputHeld = true;
+                    selectionInputHeld = false;
 
                 }
-                else if ((Input.GetAxisRaw("Vertical") < -0.001f) && selectionInputHeld == false && Input.GetButtonDown("Vertical") == true)
+                else if (Input.GetAxisRaw("Vertical") == -1 && (selectionInputHeld != true))
                 {
                     if (currentCursorPos + 1 > SelectableElementList.Count - 1)
                     {
@@ -155,8 +156,12 @@ public class UI_Controller : MonoBehaviour {
                     {
                         currentCursorPos++;
                     }
-                    selectionInputHeld = true;
+                    selectionInputHeld = false;
 
+                }
+                else
+                {
+                    selectionInputHeld = true;
                 }
             }
         }
@@ -201,7 +206,7 @@ public class UI_Controller : MonoBehaviour {
                 //selectionInputHeld = false;
             }
 
-            if ((Input.GetAxisRaw("Vertical") > 0.001f) && Input.GetButtonDown("Vertical") == true)
+            if (Input.GetAxisRaw("Vertical") == 1)
             {
                 //Need to limit this to 0th and 2nd position or 1st and 3rd pos.
 
@@ -215,7 +220,7 @@ public class UI_Controller : MonoBehaviour {
                 }
 
             }
-            else if ((Input.GetAxisRaw("Vertical") < -0.001f) && Input.GetButtonDown("Vertical") == true)
+            else if (Input.GetAxisRaw("Vertical") == -1)
             {
                 //Need to limit this to 0th and 2nd position or 1st and 3rd pos.
                 if (currentCursorPos + 2 == 2 || currentCursorPos + 2 == 3)

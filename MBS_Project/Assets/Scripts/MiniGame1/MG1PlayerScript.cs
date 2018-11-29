@@ -19,7 +19,7 @@ public class MG1PlayerScript : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().velocity = (0 * gameObject.transform.up);
 
 
-        if (Input.GetAxis("Jump") > 0)
+        if (Input.GetAxis("Submit") > 0)
         {
             if (Time.time - (1 / puffRate) > lastPuffTime)
             {

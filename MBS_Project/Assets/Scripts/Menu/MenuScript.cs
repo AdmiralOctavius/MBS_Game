@@ -15,11 +15,12 @@ public class MenuScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		if(Input.GetButton("Submit"))
+        Debug.Log(Input.GetButton("Submit").ToString());
+		if(Input.GetButtonDown("Submit"))
         {
             SceneManager.LoadScene("OverWorldMap");
         }
-        else if(Input.GetButton("Cancel"))
+        else if(Input.GetButtonDown("Cancel"))
         {
             Application.Quit();
         }
