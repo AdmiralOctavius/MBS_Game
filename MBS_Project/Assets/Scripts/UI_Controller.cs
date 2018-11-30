@@ -394,7 +394,18 @@ public class UI_Controller : MonoBehaviour {
                 }
                 else if(SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Inventory")
                 {
+                    if (itemMenuUp == true)
+                    {
+                        //Nothing
 
+                        StartCoroutine(UiTransfer(true));
+                    }
+                    else if(itemMenuUp == false)
+                    {
+                        //Nothing
+                        StartCoroutine(UiTransfer(true));
+
+                    }
                 }
 
 
@@ -413,10 +424,9 @@ public class UI_Controller : MonoBehaviour {
                         QuitBoxSwap();
                     }
                 }
-                if(itemMenuUp == true)
-                {
-                    //Nothing
-                }
+
+                
+                
                 else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Attack")
                 {
                     mainBattleUI.SetActive(false);
@@ -533,9 +543,41 @@ public class UI_Controller : MonoBehaviour {
         //Debug.Log("got here in coroutine");
         if (overworldUiOn)
         {
-            if (itemMenuUp == false && itemUI == true)
+            if (itemMenuUp == false)
             {
+                while (itemMenuObj.GetComponent<Transform>().position != itemMenuStart.GetComponent<Transform>().position)
+                {
+                    // Distance moved = time * speed.
+                    float distCovered = (Time.time - startTime) * speed;
 
+                    // Fraction of journey completed = current distance divided by total distance.
+                    float fracJourney = distCovered / journeyLength;
+
+
+                    //currentPercentage = Mathf.PingPong(Time.time, speed);
+                    itemMenuObj.GetComponent<Transform>().position = Vector3.Lerp(itemMenuObj.GetComponent<Transform>().position, itemMenuEnd.GetComponent<Transform>().position, fracJourney);
+                    //Debug.Log("got here in coroutine");
+                    yield return new WaitForFixedUpdate();
+                    itemMenuUp = true;
+                }
+            }
+            else if (itemMenuUp == true)
+            {
+                while (itemMenuObj.GetComponent<Transform>().position != itemMenuEnd.GetComponent<Transform>().position)
+                {
+                    // Distance moved = time * speed.
+                    float distCovered = (Time.time - startTime) * speed;
+
+                    // Fraction of journey completed = current distance divided by total distance.
+                    float fracJourney = distCovered / journeyLength;
+
+
+                    //currentPercentage = Mathf.PingPong(Time.time, speed);
+                    itemMenuObj.GetComponent<Transform>().position = Vector3.Lerp(itemMenuEnd.GetComponent<Transform>().position, itemMenuStart.GetComponent<Transform>().position, fracJourney);
+                    Debug.Log("got here in coroutine");
+                    yield return new WaitForFixedUpdate();
+                    itemMenuUp = true;
+                }
             }
             else
             {
@@ -561,12 +603,7 @@ public class UI_Controller : MonoBehaviour {
         }
         else
         {
-            if (itemMenuUp == true && itemUI == true)
-            {
-
-            }
-            else
-            {
+            
                 //Move up
                 //this.transform.position = startPos.transform.position;
                 while (transform.position != startPos.transform.position)
@@ -583,7 +620,7 @@ public class UI_Controller : MonoBehaviour {
                     Debug.Log("got here in coroutine");
                     yield return new WaitForFixedUpdate();
                 }
-            }
+            
         }
 
         
