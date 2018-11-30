@@ -18,6 +18,8 @@ public class MG1BalloonScript : MonoBehaviour {
         if (transform.position.y <= -10)
         {
             rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0;
+            transform.rotation = Quaternion.identity;
             transform.position = respawnPoint;
             this.GetComponent<MG1Lives>().ChangeHealth(1.0f);
         }
