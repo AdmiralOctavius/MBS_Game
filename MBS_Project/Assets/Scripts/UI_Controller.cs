@@ -31,6 +31,14 @@ public class UI_Controller : MonoBehaviour {
     public GameObject confirmBoxEnd;
     public float confirmArrowPos;
 
+    public bool itemMenuUp = false;
+    public GameObject itemMenuObj;
+    public GameObject itemMenuStart;
+    public GameObject itemMenuEnd;
+    public GameObject item1Obj;
+    public GameObject item2Obj;
+    public GameObject item3Obj;
+
     public GameObject mainBattleUI;
     public bool attackMenu;
     public GameObject attackMenuUI;
@@ -43,8 +51,10 @@ public class UI_Controller : MonoBehaviour {
 
     public bool menuUI;
 
+    public GameObject playerVariables;
+
     // Use this for initialization
-    void Start () {
+    void Start() {
         if (UIBattle == false)
         {
             if (menuUI)
@@ -65,6 +75,21 @@ public class UI_Controller : MonoBehaviour {
             }
 
         }
+
+        if (playerVariables.GetComponent<PlayerVariables>().BeatMinigame == 1)
+        {
+            item1Obj.SetActive(true);
+        }
+        if (playerVariables.GetComponent<PlayerVariables>().BeatMinigame2 == 1)
+        {
+            item2Obj.SetActive(true);
+        }
+        if (playerVariables.GetComponent<PlayerVariables>().BeatMinigame3 == 1)
+        {
+            item3Obj.SetActive(true);
+        }
+
+
     }
 
     // Update is called once per frame
@@ -242,202 +267,217 @@ public class UI_Controller : MonoBehaviour {
 
         }
 
-        if (Input.GetButtonDown("Submit") == true && combatController.GetComponent<CombatScript>().time == false)
+        if (Input.GetButtonDown("Submit") == true)
         {
-        Debug.Log("Got the submit on element: " + currentCursorPos + ". Which Should call: " + SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text);
-        //This is where the call to a specific action would be on the ActionMenu
-        if (attackMenu || magicMenu || itemMenu)
-        {
-                if (attackMenu)
+            if (UIBattle == true)
+            {
+
+                if (combatController.GetComponent<CombatScript>().time == false)
                 {
-                    if (currentCursorPos == 0)
+
+                    Debug.Log("Got the submit on element: " + currentCursorPos + ". Which Should call: " + SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text);
+                    //This is where the call to a specific action would be on the ActionMenu
+                    if (attackMenu || magicMenu || itemMenu)
                     {
-                        Debug.Log("This gets attack1");
+                        if (attackMenu)
+                        {
+                            if (currentCursorPos == 0)
+                            {
+                                Debug.Log("This gets attack1");
 
-                        combatController.GetComponent<CombatScript>().CombatForAttack();
-                        Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
-                        Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);
+                                combatController.GetComponent<CombatScript>().CombatForAttack();
+                                Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
+                                Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);
 
-                    }
-                    else if (currentCursorPos == 1)
-                    {
-                        combatController.GetComponent<CombatScript>().CombatForAttack();
-                        Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
-                        Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);
+                            }
+                            else if (currentCursorPos == 1)
+                            {
+                                combatController.GetComponent<CombatScript>().CombatForAttack();
+                                Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
+                                Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);
 
-                    }
-                    else if (currentCursorPos == 2)
-                    {
-                        combatController.GetComponent<CombatScript>().CombatForAttack();
-                        Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
-                        Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);
+                            }
+                            else if (currentCursorPos == 2)
+                            {
+                                combatController.GetComponent<CombatScript>().CombatForAttack();
+                                Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
+                                Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);
 
-                    }
-                    else
-                    {
-                        mainBattleUI.SetActive(true);
-                        attackMenuUI.SetActive(false);
-                        magicMenuUI.SetActive(false);
-                        itemMenuUI.SetActive(false);
+                            }
+                            else
+                            {
+                                mainBattleUI.SetActive(true);
+                                attackMenuUI.SetActive(false);
+                                magicMenuUI.SetActive(false);
+                                itemMenuUI.SetActive(false);
 
-                        itemMenu = false;
-                        magicMenu = false;
-                        attackMenu = false;
+                                itemMenu = false;
+                                magicMenu = false;
+                                attackMenu = false;
+                            }
+                        }
+                        else if (magicMenu)
+                        {
+                            if (currentCursorPos == 0)
+                            {
+                                if (GetComponent<PlayerVariables>().BeatMinigame == 1)
+                                {
+                                    combatController.GetComponent<CombatScript>().EnemenyAttacking(1);
+                                    //combatController.GetComponent<CombatScript>().Breath();
+                                    Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
+                                    Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);
+                                }
+                                else
+                                {
+                                    combatController.GetComponent<CombatScript>().Breath(3);
+                                }
+                            }
+                            else if (currentCursorPos == 1)
+                            {
+
+                            }
+                            else if (currentCursorPos == 2)
+                            {
+
+                            }
+                            else
+                            {
+                                mainBattleUI.SetActive(true);
+                                attackMenuUI.SetActive(false);
+                                magicMenuUI.SetActive(false);
+                                itemMenuUI.SetActive(false);
+
+                                itemMenu = false;
+                                magicMenu = false;
+                                attackMenu = false;
+                            }
+                        }
+                        else if (itemMenu)
+                        {
+                            if (currentCursorPos == 0)
+                            {
+
+                            }
+                            else if (currentCursorPos == 1)
+                            {
+
+                            }
+                            else if (currentCursorPos == 2)
+                            {
+
+                            }
+                            else
+                            {
+                                mainBattleUI.SetActive(true);
+                                attackMenuUI.SetActive(false);
+                                magicMenuUI.SetActive(false);
+                                itemMenuUI.SetActive(false);
+
+                                itemMenu = false;
+                                magicMenu = false;
+                                attackMenu = false;
+                            }
+                        }
                     }
                 }
-                else if (magicMenu)
-                {
-                    if (currentCursorPos == 0)
-                    {
-                        if (GetComponent<PlayerVariables>().BeatMinigame == 1)
-                        {
-                            combatController.GetComponent<CombatScript>().EnemenyAttacking(1);
-                            //combatController.GetComponent<CombatScript>().Breath();
-                            Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
-                            Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);
-                        }
-                        else
-                        {
-                            combatController.GetComponent<CombatScript>().Breath(3);
-                        }
-                    }
-                    else if (currentCursorPos == 1)
-                    {
 
-                    }
-                    else if (currentCursorPos == 2)
-                    {
-
-                    }
-                    else
-                    {
-                        mainBattleUI.SetActive(true);
-                        attackMenuUI.SetActive(false);
-                        magicMenuUI.SetActive(false);
-                        itemMenuUI.SetActive(false);
-
-                        itemMenu = false;
-                        magicMenu = false;
-                        attackMenu = false;
-                    }
-                }   
-                else if (itemMenu)
-                {
-                    if (currentCursorPos == 0)
-                    {
-
-                    }
-                    else if (currentCursorPos == 1)
-                    {
-
-                    }
-                    else if (currentCursorPos == 2)
-                    {
-
-                    }
-                    else
-                    {
-                        mainBattleUI.SetActive(true);
-                        attackMenuUI.SetActive(false);
-                        magicMenuUI.SetActive(false);
-                        itemMenuUI.SetActive(false);
-
-                        itemMenu = false;
-                        magicMenu = false;
-                        attackMenu = false;
-                    }
-                }
-        }
-        else
-        {
-           if (menuUI)
-           {
+            }
+            else if (menuUI)
+            {
                 if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Play")
                 {
-                        SceneManager.LoadScene("OverWorldMap");
+                    SceneManager.LoadScene("OverWorldMap");
                 }
                 else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Quit")
                 {
-                        Application.Quit();
+                    Application.Quit();
                 }
-                        
-            }
-            else
-            {
+                else if(SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Inventory")
+                {
+
+                }
+
 
                 if (confirmExit == true)
+                {
+                    if (confirmArrowPos == 0)
                     {
-                        if (confirmArrowPos == 0)
-                        {
-                            //Exit
-                            Debug.Log("Exit point");
-                            SceneManager.LoadScene("Menu");
-                        }
-                        else
-                        {
-                            //Return to normal
-                            confirmExit = false;
-                            QuitBoxSwap();
-                        }
+                        //Exit
+                        Debug.Log("Exit point");
+                        SceneManager.LoadScene("Menu");
                     }
+                    else
+                    {
+                        //Return to normal
+                        confirmExit = false;
+                        QuitBoxSwap();
+                    }
+                }
+                if(itemMenuUp == true)
+                {
+                    //Nothing
+                }
                 else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Attack")
-                    {
-                        mainBattleUI.SetActive(false);
-                        attackMenuUI.SetActive(true);
-                        attackMenu = true;
-                    }
+                {
+                    mainBattleUI.SetActive(false);
+                    attackMenuUI.SetActive(true);
+                    attackMenu = true;
+                }
                 else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Item")
-                    {
-                        mainBattleUI.SetActive(false);
-                        itemMenuUI.SetActive(true);
-                        itemMenu = true;
-                    }
+                {
+                    mainBattleUI.SetActive(false);
+                    itemMenuUI.SetActive(true);
+                    itemMenu = true;
+                }
                 else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Run")
-                    {
-                        mainBattleUI.SetActive(true);
-                        attackMenuUI.SetActive(false);
-                        magicMenuUI.SetActive(false);
-                        itemMenuUI.SetActive(false);
+                {
+                    mainBattleUI.SetActive(true);
+                    attackMenuUI.SetActive(false);
+                    magicMenuUI.SetActive(false);
+                    itemMenuUI.SetActive(false);
 
-                        itemMenu = false;
-                        magicMenu = false;
-                        attackMenu = false;
-                    }
+                    itemMenu = false;
+                    magicMenu = false;
+                    attackMenu = false;
+                }
                 else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Magic" && (GetComponent<PlayerVariables>().BeatMinigame == 1))
                 {
-                        Debug.Log("Got here");
+                    Debug.Log("Got here");
                     mainBattleUI.SetActive(false);
                     magicMenuUI.SetActive(true);
-                        if (GetComponent<PlayerVariables>().BeatMinigame != 1)
-                        {
-                            magicMenuUI.transform.GetChild(0).gameObject.SetActive(false);
-                        }
+                    if (GetComponent<PlayerVariables>().BeatMinigame != 1)
+                    {
+                        magicMenuUI.transform.GetChild(0).gameObject.SetActive(false);
+                    }
 
-                        if(GetComponent<PlayerVariables>().BeatMinigame2 != 1){
-                            magicMenuUI.transform.GetChild(1).gameObject.SetActive(false);
-                        }
+                    if (GetComponent<PlayerVariables>().BeatMinigame2 != 1)
+                    {
+                        magicMenuUI.transform.GetChild(1).gameObject.SetActive(false);
+                    }
 
-                        if(GetComponent<PlayerVariables>().BeatMinigame3 != 1){
-                            magicMenuUI.transform.GetChild(2).gameObject.SetActive(false);
-                        }
+                    if (GetComponent<PlayerVariables>().BeatMinigame3 != 1)
+                    {
+                        magicMenuUI.transform.GetChild(2).gameObject.SetActive(false);
+                    }
 
                     magicMenu = true;
                 }
                 else
+                {
+                    if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Quit")
                     {
-                        if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Quit")
-                        {
-                            Debug.Log("Got here");
-                            confirmExit = true;
-                            QuitBoxSwap();
-                        }
+                        Debug.Log("Got here");
+                        confirmExit = true;
+                        QuitBoxSwap();
                     }
+                }
 
-                
             }
 
         }
-        }
+
+        
+    
 
 
         if (Input.GetButtonDown("Cancel"))
@@ -464,8 +504,8 @@ public class UI_Controller : MonoBehaviour {
 
 
                         //Debug.Log("Calling coroutine");
-                        StopCoroutine(UiTransfer());
-                        StartCoroutine(UiTransfer());
+                        StopCoroutine(UiTransfer(false));
+                        StartCoroutine(UiTransfer(false));
 
                     }
                     else
@@ -474,8 +514,8 @@ public class UI_Controller : MonoBehaviour {
                         startTime = Time.time;
                         //Debug.Log("Calling coroutine");
 
-                        StopCoroutine(UiTransfer());
-                        StartCoroutine(UiTransfer());
+                        StopCoroutine(UiTransfer(false));
+                        StartCoroutine(UiTransfer(false));
                     }
                 }
 
@@ -486,45 +526,63 @@ public class UI_Controller : MonoBehaviour {
         //Debug.Log(confirmExit.ToString());
     }
 
-    IEnumerator UiTransfer()
+    IEnumerator UiTransfer(bool itemUI)
     {
+
+
         //Debug.Log("got here in coroutine");
         if (overworldUiOn)
         {
-            //Move down
-            //this.transform.position = endPos.transform.position;
-            while (transform.position != endPos.transform.position)
+            if (itemMenuUp == false && itemUI == true)
             {
-                // Distance moved = time * speed.
-                float distCovered = (Time.time - startTime) * speed;
 
-                // Fraction of journey completed = current distance divided by total distance.
-                float fracJourney = distCovered / journeyLength;
+            }
+            else
+            {
 
 
-                //currentPercentage = Mathf.PingPong(Time.time, speed);
-                transform.position = Vector3.Lerp(startPos.transform.position, endPos.transform.position, fracJourney);
-                //Debug.Log("got here in coroutine");
-                yield return new WaitForFixedUpdate();
+                //Move down
+                //this.transform.position = endPos.transform.position;
+                while (transform.position != endPos.transform.position)
+                {
+                    // Distance moved = time * speed.
+                    float distCovered = (Time.time - startTime) * speed;
+
+                    // Fraction of journey completed = current distance divided by total distance.
+                    float fracJourney = distCovered / journeyLength;
+
+
+                    //currentPercentage = Mathf.PingPong(Time.time, speed);
+                    transform.position = Vector3.Lerp(startPos.transform.position, endPos.transform.position, fracJourney);
+                    //Debug.Log("got here in coroutine");
+                    yield return new WaitForFixedUpdate();
+                }
             }
         }
         else
         {
-            //Move up
-            //this.transform.position = startPos.transform.position;
-            while (transform.position != startPos.transform.position)
+            if (itemMenuUp == true && itemUI == true)
             {
-                // Distance moved = time * speed.
-                float distCovered = (Time.time - startTime) * speed;
 
-                // Fraction of journey completed = current distance divided by total distance.
-                float fracJourney = distCovered / journeyLength;
+            }
+            else
+            {
+                //Move up
+                //this.transform.position = startPos.transform.position;
+                while (transform.position != startPos.transform.position)
+                {
+                    // Distance moved = time * speed.
+                    float distCovered = (Time.time - startTime) * speed;
+
+                    // Fraction of journey completed = current distance divided by total distance.
+                    float fracJourney = distCovered / journeyLength;
 
 
-                //currentPercentage = Mathf.PingPong(Time.time, speed);
-                transform.position = Vector3.Lerp(endPos.transform.position, startPos.transform.position, fracJourney);
-                Debug.Log("got here in coroutine");
-                yield return new WaitForFixedUpdate();
+                    //currentPercentage = Mathf.PingPong(Time.time, speed);
+                    transform.position = Vector3.Lerp(endPos.transform.position, startPos.transform.position, fracJourney);
+                    Debug.Log("got here in coroutine");
+                    yield return new WaitForFixedUpdate();
+                }
             }
         }
 
