@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 471898858}
   - component: {fileID: 471898860}
   - component: {fileID: 471898862}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Balloon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -748,7 +748,7 @@ GameObject:
   - component: {fileID: 1608998394}
   - component: {fileID: 1608998398}
   - component: {fileID: 1608998397}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MGPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
