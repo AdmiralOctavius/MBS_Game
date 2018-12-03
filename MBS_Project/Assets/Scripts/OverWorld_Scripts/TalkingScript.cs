@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class TalkingScript : MonoBehaviour
 {
 
+    public GameObject playerVars;
+    public GameObject player;
 	// Use this for initialization
 	void Start ()
     {
@@ -23,6 +25,8 @@ public class TalkingScript : MonoBehaviour
     {
         if(Input.GetButton("Submit"))
         {
+            playerVars.GetComponent<PlayerVariables>().SetPlayerVariable(5, player.transform.position.x);
+            playerVars.GetComponent<PlayerVariables>().SetPlayerVariable(6, player.transform.position.x);
             SceneManager.LoadScene("Visual 1");
         }
     }

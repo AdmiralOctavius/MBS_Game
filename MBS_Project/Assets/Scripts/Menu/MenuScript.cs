@@ -18,7 +18,7 @@ public class MenuScript : MonoBehaviour
         Debug.Log(Input.GetButton("Submit").ToString());
 		if(Input.GetButtonDown("Submit"))
         {
-            SceneManager.LoadScene("OverWorldMap");
+            SceneManager.LoadScene("OverWorldMapUpdate");
         }
         else if(Input.GetButtonDown("Cancel"))
         {

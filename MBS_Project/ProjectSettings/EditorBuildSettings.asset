@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Visual 3.unity
     guid: e532865fda924d940a1ef9aecc974390
+  - enabled: 1
+    path: Assets/Scenes/OverWorldMapUpdate.unity
+    guid: a9839eca0244af2498ae3b7fc46c0dcf
   m_configObjects: {}

@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class MiniGameTalkingScript : MonoBehaviour
 {
 
+    public GameObject playerVars;
+    public GameObject player;
+
     // Use this for initialization
     void Start()
     {
@@ -23,6 +26,9 @@ public class MiniGameTalkingScript : MonoBehaviour
     {
         if (Input.GetButton("Submit"))
         {
+            playerVars.GetComponent<PlayerVariables>().SetPlayerVariable(5, player.transform.position.x);
+            playerVars.GetComponent<PlayerVariables>().SetPlayerVariable(6, player.transform.position.x);
+
             SceneManager.LoadScene("MG1MainMenu");
         }
     }

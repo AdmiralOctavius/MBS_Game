@@ -7,13 +7,16 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject UITest;
 
-
-
-	// Use this for initialization
-	void Start ()
+    
+    // Use this for initialization
+    void Start ()
     {
-		
-	}
+        if (PlayerPrefs.HasKey("playerOverworldX") && PlayerPrefs.HasKey("playerOverworldY"))
+        {
+            gameObject.transform.position = new Vector2(PlayerPrefs.GetFloat("playerOverworldX"), PlayerPrefs.GetFloat("playerOverworldY"));
+        }
+       
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate ()
