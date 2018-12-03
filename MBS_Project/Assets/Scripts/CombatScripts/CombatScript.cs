@@ -13,6 +13,11 @@ public class CombatScript : MonoBehaviour
     public Slider enemyHPBar;
     public bool time = false;
 
+    public bool hasSmoked = false;
+    public int smokingDelay;
+
+    public bool hasRelaxed = false;
+    public int relaxDelay;
 
 
     //Im not calling GetComponent Every god damn time
@@ -88,7 +93,7 @@ public class CombatScript : MonoBehaviour
         //works
         if(GetComponent<PlayerVariables>().BeatMinigame == 1)
         {
-            combatText.text = "The player takes deep breaths, healing them for " + 15.ToString() + " health!";
+            combatText.text = "The player takes deep breaths, helping them calm down. They heal for " + 15.ToString() + " health!";
             StartCoroutine(CombatText(choice));
        
 
@@ -100,6 +105,44 @@ public class CombatScript : MonoBehaviour
             combatText.text = "You do not have this ability.";
             StartCoroutine(CombatText(choice));
         }
+    }
+
+    public void Smoking(int choice)
+    {
+        //if
+        if(hasSmoked == false)
+        {
+            combatText.text = "The player takes out a cigerate and starts to smoke! They heal for " + 30.ToString() + " health but loose " + 2.ToString() + " attack and " + 6.ToString() + " to speed!";
+            StartCoroutine(CombatText(choice));
+
+            playerHp += 30;
+            playerAttack -= 2;
+            playerSpeed -= 6;
+            hasSmoked = true;
+        }
+        else
+        {
+            combatText.text = "Your lungs have not yet recovered.";
+            StartCoroutine(CombatText(choice));
+        }
+    }
+
+    public void Relaxing(int choice)
+    {
+        //if (GetComponent<PlayerVariables>().BeatMinigame == 1)
+
+        combatText.text = "The player sists down and finds a happy place in their mind, allowing them to relax. Thier Attack increases by 2 and all atacks are reduced by 2 for 3 turns!";
+        StartCoroutine(CombatText(choice));
+
+        playerAttack += 2;
+        enemyAttack -= 2;
+        hasRelaxed = true;
+
+        //else
+        //{
+        //    combatText.text = "You do not have this ability.";
+        //    StartCoroutine(CombatText(choice));
+        //}
     }
 
     //Enemey Attack Function
@@ -157,22 +200,64 @@ public class CombatScript : MonoBehaviour
                 //combatText.text = "";
                 something = false;
 
+                //counts down turns till you can smoke, dont do it it gives you cancer!
+                while(hasSmoked == true)
+                {
+                    if(smokingDelay == 0)
+                    {
+                        hasSmoked = false;
+                        combatText.text = "Your lungs feel better... You could use a smoke.";
+                        playerAttack += 2;
+                        playerSpeed += 6;
+                    }
+                    else
+                        smokingDelay -= 1;
+                }
+
+                //counts down till you can relax, its needed rust me, Im a programer...
+                while(hasRelaxed == true)
+                {
+                    if(relaxDelay == 0)
+                    {
+                        hasRelaxed = false;
+                        combatText.text = "You no longer feel relaxed.";
+                        playerAttack -= 2;
+                        enemyAttack += 2;
+                    }
+                }
+
                 //choice is equvilent to attacks,0 = pa, 1= b, 2= ea, 3 = null
+                //player attack
                 if(choice == 0)
                 {
                     PlayerAttacking(3);
                 }
+                //breath
                 else if(choice == 1)
                 {
                     Breath(3);
                 }
+                //enamy attack
                 else if(choice == 2)
                 {
                     EnemenyAttacking(3);
                 }
+                //exits turn
                 else if( choice == 3)
                 {
                     //Do nothing, coroutine ends
+                }
+                //smokes
+                else if( choice == 4)
+                {
+                    smokingDelay = 3;
+                    Smoking(3);
+                }
+                //relax
+                else if(choice == 5)
+                {
+                    relaxDelay = 3;
+                    Relaxing(3);
                 }
             }
 
