@@ -57,5 +57,12 @@ public class TextChanging : MonoBehaviour {
 
             textTab.text = textHolder[currentSpot];
         }
-	}
+
+        if (Input.GetButtonDown("Submit"))
+        {
+            currentSpot++;
+
+            textTab.text = textHolder[currentSpot];
+        }
+    }
 }
