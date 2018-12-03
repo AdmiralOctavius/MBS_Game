@@ -15,7 +15,7 @@ public class TalkingScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-	    
+        this.GetComponent<Rigidbody2D>().WakeUp();
 	}
     
 

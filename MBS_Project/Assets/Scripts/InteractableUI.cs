@@ -27,17 +27,24 @@ public class InteractableUI : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        StopCoroutine(hideCall());
-        startTime = Time.time;
-        StartCoroutine(showCall());
+        if(col.tag == "Player")
+        {
+         StopCoroutine(hideCall());
+         startTime = Time.time;
+         StartCoroutine(showCall());
+
+        }
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        StopCoroutine(showCall());
+        if (col.tag == "Player")
+        {
+            StopCoroutine(showCall());
 
-        startTime = Time.time;
-        StartCoroutine(hideCall());
+            startTime = Time.time;
+            StartCoroutine(hideCall());
+        }
     }
 
     IEnumerator showCall()
