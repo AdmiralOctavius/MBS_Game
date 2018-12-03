@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class TextChanging : MonoBehaviour {
 
@@ -13,8 +14,38 @@ public class TextChanging : MonoBehaviour {
 
     public Text textTab;
 
+    FileStream content = new FileStream("Speaking.txt", FileMode.Open, FileAccess.Read);
+
+    //StreamReader inp_stm = new StreamReader("Speaking.txt");
+
+    //void readTextFile(string file_path)
+    //{
+    //    while (!inp_stm.EndOfStream)
+    //    {
+    //        string inp_ln = inp_stm.ReadLine();
+    //
+    //        foreach (var read in inp_ln)
+    //        {
+    //            textHolder.Add(str(read));
+    //        }
+    //    }
+    //
+    //    inp_stm.Close();
+    //}
+
     // Use this for initialization
     void Start () {
+        using (var streamContent = new StreamReader(content))
+        {
+            string linebyline;
+            while ((linebyline = streamContent.ReadLine()) != null)
+            {
+                textHolder.Add(linebyline);
+            }
+        }
+
+
+            //readTextFile("Speaking.txt");
 
     }
 	
@@ -23,10 +54,6 @@ public class TextChanging : MonoBehaviour {
 		if (Input.GetMouseButtonDown(0))
         {
             currentSpot++;
-
-            //textHolder[currentSpot];
-            //current = textHolder[i];
-            
 
             textTab.text = textHolder[currentSpot];
         }
