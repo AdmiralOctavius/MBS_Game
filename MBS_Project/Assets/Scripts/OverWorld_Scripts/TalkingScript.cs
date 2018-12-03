@@ -23,11 +23,14 @@ public class TalkingScript : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if(Input.GetButton("Submit"))
+        if (collision.tag == "Player")
         {
-            playerVars.GetComponent<PlayerVariables>().SetPlayerVariable(5, player.transform.position.x);
-            playerVars.GetComponent<PlayerVariables>().SetPlayerVariable(6, player.transform.position.x);
-            SceneManager.LoadScene("Visual 1");
+            if (Input.GetButton("Submit"))
+            {
+                playerVars.GetComponent<PlayerVariables>().SetPlayerVariable(5, player.transform.position.x);
+                playerVars.GetComponent<PlayerVariables>().SetPlayerVariable(6, player.transform.position.x);
+                SceneManager.LoadScene("Visual 1");
+            }
         }
     }
 

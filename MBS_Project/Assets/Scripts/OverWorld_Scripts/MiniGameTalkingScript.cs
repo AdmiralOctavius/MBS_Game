@@ -24,12 +24,15 @@ public class MiniGameTalkingScript : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetButton("Submit"))
+        if (collision.tag == "Player")
         {
-            playerVars.GetComponent<PlayerVariables>().SetPlayerVariable(5, player.transform.position.x);
-            playerVars.GetComponent<PlayerVariables>().SetPlayerVariable(6, player.transform.position.x);
+            if (Input.GetButton("Submit"))
+            {
+                playerVars.GetComponent<PlayerVariables>().SetPlayerVariable(5, player.transform.position.x);
+                playerVars.GetComponent<PlayerVariables>().SetPlayerVariable(6, player.transform.position.x);
 
-            SceneManager.LoadScene("MG1MainMenu");
+                SceneManager.LoadScene("MG1MainMenu");
+            }
         }
     }
 

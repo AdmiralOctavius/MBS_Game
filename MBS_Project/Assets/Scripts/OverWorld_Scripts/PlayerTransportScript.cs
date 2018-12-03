@@ -25,15 +25,18 @@ public class PlayerTransportScript : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetButton("Submit"))
+        if (collision.tag == "Player")
         {
-            //Vector3 position = new Vector3(xPos, yPos);
-            Vector3 position = endPoint.transform.position;
+            if (Input.GetButton("Submit"))
+            {
+                //Vector3 position = new Vector3(xPos, yPos);
+                Vector3 position = endPoint.transform.position;
+                this.GetComponent<AudioSource>().Play();
+                Quaternion test = new Quaternion();
 
-            Quaternion test = new Quaternion();
-
-            collision.transform.SetPositionAndRotation(position, test);
-        }
+                collision.transform.SetPositionAndRotation(position, test);
+            }
+        }   
     }
 
 }

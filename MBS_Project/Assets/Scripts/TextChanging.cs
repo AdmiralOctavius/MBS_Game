@@ -53,7 +53,7 @@ void Start () {
         if (Input.GetButtonDown("Submit"))
         {
             currentSpot++;
-
+            counter++;
             if (textHolder.Count - 1 > 0)
             {
                 textTab.text = textHolder[currentSpot];
@@ -61,7 +61,7 @@ void Start () {
 
         }
 
-        if (counter == 37)
+        if (counter == 30)
         {
             SceneManager.LoadScene(scene);
         }
