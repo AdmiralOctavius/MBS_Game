@@ -25,7 +25,7 @@ public class MG2PlayerScript : MonoBehaviour
             speed = walkSpeed;
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)) //borrowed from Platformer class example 
         {
             //Check if we are on the ground right now
             GameObject feet = transform.GetChild(0).gameObject;
