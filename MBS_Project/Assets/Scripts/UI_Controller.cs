@@ -57,12 +57,7 @@ public class UI_Controller : MonoBehaviour {
     void Start() {
         if (UIBattle == false)
         {
-            if (menuUI)
-            {
-
-            }
-            else
-            {
+           
                 //SelectableElementList = new List<GameObject>();
                 this.transform.position = startPos.transform.position;
 
@@ -72,12 +67,12 @@ public class UI_Controller : MonoBehaviour {
                 //confirmBox.transform.position = confirmBoxStart.transform.position;
                 QuitBoxSwap();
 
-            }
+            
 
         }
 
         if (playerVariables.GetComponent<PlayerVariables>().BeatMinigame == 1)
-        {
+        {   
             item1Obj.SetActive(true);
         }
         if (playerVariables.GetComponent<PlayerVariables>().BeatMinigame2 == 1)
@@ -152,8 +147,8 @@ public class UI_Controller : MonoBehaviour {
                         //Nothing
                         selectionInputHeld = false;
                     }
-                    Debug.Log(Input.GetAxisRaw("Vertical").ToString());
-                    Debug.Log(selectionInputHeld.ToString());
+                    //Debug.Log(Input.GetAxisRaw("Vertical").ToString());
+                    //Debug.Log(selectionInputHeld.ToString());
                 }
             }
             else if (menuUI)
@@ -276,6 +271,7 @@ public class UI_Controller : MonoBehaviour {
                 {
 
                     Debug.Log("Got the submit on element: " + currentCursorPos + ". Which Should call: " + SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text);
+                    Debug.Log("Attack menu:" + attackMenu.ToString() + "| magic menu:" + magicMenu.ToString() + "item menu:" + itemMenu.ToString());
                     //This is where the call to a specific action would be on the ActionMenu
                     if (attackMenu || magicMenu || itemMenu)
                     {
@@ -379,35 +375,92 @@ public class UI_Controller : MonoBehaviour {
                             }
                         }
                     }
+                    else
+                    {
+                        if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Attack")
+                        {
+                            mainBattleUI.SetActive(false);
+                            attackMenuUI.SetActive(true);
+                            attackMenu = true;
+                        }
+                        else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Item")
+                        {
+                            mainBattleUI.SetActive(false);
+                            itemMenuUI.SetActive(true);
+                            itemMenu = true;
+                        }
+                        else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Run")
+                        {
+                            mainBattleUI.SetActive(true);
+                            attackMenuUI.SetActive(false);
+                            magicMenuUI.SetActive(false);
+                            itemMenuUI.SetActive(false);
+
+                            itemMenu = false;
+                            magicMenu = false;
+                            attackMenu = false;
+                        }
+                        else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Magic" && (GetComponent<PlayerVariables>().BeatMinigame == 1))
+                        {
+                            Debug.Log("Got here");
+                            mainBattleUI.SetActive(false);
+                            magicMenuUI.SetActive(true);
+                            if (GetComponent<PlayerVariables>().BeatMinigame != 1)
+                            {
+                                magicMenuUI.transform.GetChild(0).gameObject.SetActive(false);
+                            }
+
+                            if (GetComponent<PlayerVariables>().BeatMinigame2 != 1)
+                            {
+                                magicMenuUI.transform.GetChild(1).gameObject.SetActive(false);
+                            }
+
+                            if (GetComponent<PlayerVariables>().BeatMinigame3 != 1)
+                            {
+                                magicMenuUI.transform.GetChild(2).gameObject.SetActive(false);
+                            }
+
+                            magicMenu = true;
+                        }
+                    }
                 }
 
             }
             else if (menuUI)
             {
+                Debug.Log(SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text.ToString());
                 if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Play")
                 {
                     SceneManager.LoadScene("OverWorldMap");
                 }
                 else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Quit")
                 {
+                    Debug.Log("Got to quit call");
                     Application.Quit();
                 }
                 else if(SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Inventory")
                 {
+                    
                     if (itemMenuUp == true)
                     {
                         //Nothing
-
+                        Debug.Log("Got to inventory call");
+                        //StopCoroutine(UiTransfer(true));
+                        StopAllCoroutines();
                         StartCoroutine(UiTransfer(true));
+                        itemMenuUp = false;
                     }
                     else if(itemMenuUp == false)
                     {
                         //Nothing
+                        
+                        StopCoroutine(UiTransfer(true));
                         StartCoroutine(UiTransfer(true));
-
+                        itemMenuUp = true;
                     }
+                    Debug.Log(itemMenuUp.ToString());
                 }
-
+                
 
                 if (confirmExit == true)
                 {
@@ -424,54 +477,6 @@ public class UI_Controller : MonoBehaviour {
                         QuitBoxSwap();
                     }
                 }
-
-                
-                
-                else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Attack")
-                {
-                    mainBattleUI.SetActive(false);
-                    attackMenuUI.SetActive(true);
-                    attackMenu = true;
-                }
-                else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Item")
-                {
-                    mainBattleUI.SetActive(false);
-                    itemMenuUI.SetActive(true);
-                    itemMenu = true;
-                }
-                else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Run")
-                {
-                    mainBattleUI.SetActive(true);
-                    attackMenuUI.SetActive(false);
-                    magicMenuUI.SetActive(false);
-                    itemMenuUI.SetActive(false);
-
-                    itemMenu = false;
-                    magicMenu = false;
-                    attackMenu = false;
-                }
-                else if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Magic" && (GetComponent<PlayerVariables>().BeatMinigame == 1))
-                {
-                    Debug.Log("Got here");
-                    mainBattleUI.SetActive(false);
-                    magicMenuUI.SetActive(true);
-                    if (GetComponent<PlayerVariables>().BeatMinigame != 1)
-                    {
-                        magicMenuUI.transform.GetChild(0).gameObject.SetActive(false);
-                    }
-
-                    if (GetComponent<PlayerVariables>().BeatMinigame2 != 1)
-                    {
-                        magicMenuUI.transform.GetChild(1).gameObject.SetActive(false);
-                    }
-
-                    if (GetComponent<PlayerVariables>().BeatMinigame3 != 1)
-                    {
-                        magicMenuUI.transform.GetChild(2).gameObject.SetActive(false);
-                    }
-
-                    magicMenu = true;
-                }
                 else
                 {
                     if (SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text == "Quit")
@@ -486,18 +491,15 @@ public class UI_Controller : MonoBehaviour {
 
         }
 
-        
-    
+
+
 
 
         if (Input.GetButtonDown("Cancel"))
-        {
-            if (menuUI)
-            {
+        { 
 
-            }
 
-            else if(UIBattle == false)
+            if (UIBattle == false)
             {
                 if (confirmExit)
                 {
@@ -528,9 +530,10 @@ public class UI_Controller : MonoBehaviour {
                         StartCoroutine(UiTransfer(false));
                     }
                 }
+            }
+        
 
             }
-        }
 
         //Debug.Log(overworldUiOn.ToString());
         //Debug.Log(confirmExit.ToString());
@@ -543,41 +546,49 @@ public class UI_Controller : MonoBehaviour {
         //Debug.Log("got here in coroutine");
         if (overworldUiOn)
         {
-            if (itemMenuUp == false)
-            {
-                while (itemMenuObj.GetComponent<Transform>().position != itemMenuStart.GetComponent<Transform>().position)
+            if(itemUI == true){
+
+                if (itemMenuUp == false)
                 {
-                    // Distance moved = time * speed.
-                    float distCovered = (Time.time - startTime) * speed;
+                    while (itemMenuObj.GetComponent<Transform>().position != itemMenuStart.GetComponent<Transform>().position)
+                    {
+                        // Distance moved = time * speed.
+                        float distCovered = (Time.time - startTime) * speed;
 
-                    // Fraction of journey completed = current distance divided by total distance.
-                    float fracJourney = distCovered / journeyLength;
+                        // Fraction of journey completed = current distance divided by total distance.
+                        float fracJourney = distCovered / journeyLength;
 
 
-                    //currentPercentage = Mathf.PingPong(Time.time, speed);
-                    itemMenuObj.GetComponent<Transform>().position = Vector3.Lerp(itemMenuObj.GetComponent<Transform>().position, itemMenuEnd.GetComponent<Transform>().position, fracJourney);
-                    //Debug.Log("got here in coroutine");
-                    yield return new WaitForFixedUpdate();
-                    itemMenuUp = true;
+                        //currentPercentage = Mathf.PingPong(Time.time, speed);
+                        itemMenuObj.GetComponent<Transform>().position = Vector3.Lerp(itemMenuStart.GetComponent<Transform>().position, itemMenuEnd.GetComponent<Transform>().position, fracJourney);
+                        //Debug.Log("got here in coroutine");
+                        yield return new WaitForFixedUpdate();
+                        
+
+
+                    }
                 }
-            }
-            else if (itemMenuUp == true)
-            {
-                while (itemMenuObj.GetComponent<Transform>().position != itemMenuEnd.GetComponent<Transform>().position)
-                {
-                    // Distance moved = time * speed.
-                    float distCovered = (Time.time - startTime) * speed;
+                else {
 
-                    // Fraction of journey completed = current distance divided by total distance.
-                    float fracJourney = distCovered / journeyLength;
+                    while (itemMenuObj.GetComponent<Transform>().position != itemMenuEnd.GetComponent<Transform>().position)
+                    {
+                        // Distance moved = time * speed.
+                        float distCovered = (Time.time - startTime) * speed;
+
+                        // Fraction of journey completed = current distance divided by total distance.
+                        float fracJourney = distCovered / journeyLength;
 
 
-                    //currentPercentage = Mathf.PingPong(Time.time, speed);
-                    itemMenuObj.GetComponent<Transform>().position = Vector3.Lerp(itemMenuEnd.GetComponent<Transform>().position, itemMenuStart.GetComponent<Transform>().position, fracJourney);
-                    Debug.Log("got here in coroutine");
-                    yield return new WaitForFixedUpdate();
-                    itemMenuUp = true;
+                        //currentPercentage = Mathf.PingPong(Time.time, speed);
+                        itemMenuObj.GetComponent<Transform>().position = Vector3.Lerp(itemMenuEnd.GetComponent<Transform>().position, itemMenuStart.GetComponent<Transform>().position, fracJourney);
+                        
+                        yield return new WaitForFixedUpdate();
+                        
+                            
+                        Debug.Log("Set itemMenuUp: " + itemMenuUp.ToString());
+                    }
                 }
+
             }
             else
             {

@@ -962,6 +962,11 @@ Prefab:
       propertyPath: m_Text
       value: Spell3
       objectReference: {fileID: 0}
+    - target: {fileID: 114581882691518706, guid: 3e1a267c4adab294286667acc5bfb08e,
+        type: 2}
+      propertyPath: playerVariables
+      value: 
+      objectReference: {fileID: 2138456941}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e1a267c4adab294286667acc5bfb08e, type: 2}
   m_IsPrefabAsset: 0
@@ -1030,6 +1035,7 @@ MonoBehaviour:
   combatText: {fileID: 949548241}
   playerHPBar: {fileID: 1414936058}
   enemyHPBar: {fileID: 264891780}
+  time: 0
   playerAttack: 0
   playerDeffense: 0
   playerSpeed: 0
@@ -1063,6 +1069,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BeatMinigame: 0
+  BeatMinigame2: 0
+  BeatMinigame3: 0
   PlayerAttack: 0
   PlayerHP: 0
   PlayerDefense: 0
@@ -1084,6 +1092,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BeatMinigame: 0
+  BeatMinigame2: 0
+  BeatMinigame3: 0
   PlayerAttack: 0
   PlayerHP: 0
   PlayerDefense: 0
