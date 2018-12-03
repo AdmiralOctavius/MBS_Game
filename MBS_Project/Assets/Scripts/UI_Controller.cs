@@ -60,6 +60,7 @@ public class UI_Controller : MonoBehaviour {
            
                 //SelectableElementList = new List<GameObject>();
                 this.transform.position = startPos.transform.position;
+                 itemMenuObj.transform.position = itemMenuStart.transform.position;
 
                 // Calculate the journey length.
                 journeyLength = Vector3.Distance(startPos.transform.position, endPos.transform.position);
@@ -127,7 +128,8 @@ public class UI_Controller : MonoBehaviour {
                             currentCursorPos--;
                         }
                         selectionInputHeld = true;
-
+                        itemMenuObj.SetActive(false);
+                        itemMenuUp = false;
                     }
                     else if (Input.GetAxisRaw("Vertical") == -1 && (selectionInputHeld != true))
                     {
@@ -140,7 +142,8 @@ public class UI_Controller : MonoBehaviour {
                             currentCursorPos++;
                         }
                         selectionInputHeld = true;
-
+                        itemMenuObj.SetActive(false);
+                        itemMenuUp = false;
                     }
                     else if(Input.GetAxisRaw("Vertical") == 0)
                     {
@@ -464,16 +467,20 @@ public class UI_Controller : MonoBehaviour {
                         //Nothing
                         Debug.Log("Got to inventory call");
                         //StopCoroutine(UiTransfer(true));
-                        StopAllCoroutines();
-                        StartCoroutine(UiTransfer(true));
+                        //StopAllCoroutines();
+                        //StartCoroutine(UiTransfer(true));
                         itemMenuUp = false;
+                        itemMenuObj.SetActive(false);
+                        
                     }
                     else if(itemMenuUp == false)
                     {
                         //Nothing
-                        
-                        StopCoroutine(UiTransfer(true));
-                        StartCoroutine(UiTransfer(true));
+
+                        //StopCoroutine(UiTransfer(true));
+                        //StartCoroutine(UiTransfer(true));
+                        itemMenuObj.SetActive(true);
+                     
                         itemMenuUp = true;
                     }
                     Debug.Log(itemMenuUp.ToString());
@@ -532,6 +539,8 @@ public class UI_Controller : MonoBehaviour {
                         overworldUiOn = false;
                         startTime = Time.time;
 
+                        itemMenuObj.SetActive(false);
+                        itemMenuUp = false;
 
                         //Debug.Log("Calling coroutine");
                         StopCoroutine(UiTransfer(false));
