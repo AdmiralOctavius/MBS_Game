@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class TextChanging : MonoBehaviour {
 
     public List<string> textHolder;
+
+    public string scene = "FightSceen";
 
     //string currentText;
 
@@ -55,14 +58,30 @@ public class TextChanging : MonoBehaviour {
         {
             currentSpot++;
 
-            textTab.text = textHolder[currentSpot];
+            if (textHolder.Count > 0)
+            {
+                textTab.text = textHolder[currentSpot];
+            }
+            
+            else 
+            {
+                SceneManager.LoadScene(scene);
+            }
         }
 
         if (Input.GetButtonDown("Submit"))
         {
             currentSpot++;
 
-            textTab.text = textHolder[currentSpot];
+            if (textHolder.Count > 0)
+            {
+                textTab.text = textHolder[currentSpot];
+            }
+
+            else
+            {
+                SceneManager.LoadScene(scene);
+            }
         }
     }
 }
