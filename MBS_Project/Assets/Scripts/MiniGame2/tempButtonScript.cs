@@ -1,19 +1,21 @@
 ﻿using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine;
 
-public class MG1ButtonScript : MonoBehaviour
-{
+public class tempButtonScript : MonoBehaviour {
+
     public bool isPlay = true;
 
     public void Play()
     {
         Debug.Log("We clicked the play button");
-        SceneManager.LoadScene("JennaMiniGame");
+        GetComponent<PlayerVariables>().SetPlayerVariable(7, 1);
+        SceneManager.LoadScene("MG2YouWin");
     }
 
     public void Quit()
     {
-        SceneManager.LoadScene("OverWorldMap");
+        SceneManager.LoadScene("OverWorldMapUpdate");
     }
 
     void Update()
@@ -27,4 +29,7 @@ public class MG1ButtonScript : MonoBehaviour
         }
 
     }
+
+    
+
 }

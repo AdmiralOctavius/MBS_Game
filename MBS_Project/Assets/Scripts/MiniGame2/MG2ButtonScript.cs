@@ -1,19 +1,19 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class MG1ButtonScript : MonoBehaviour
+public class MG2ButtonScript : MonoBehaviour
 {
     public bool isPlay = true;
 
     public void Play()
     {
         Debug.Log("We clicked the play button");
-        SceneManager.LoadScene("JennaMiniGame");
+        SceneManager.LoadScene("MG2GamePlay");
     }
 
     public void Quit()
     {
-        SceneManager.LoadScene("OverWorldMap");
+        SceneManager.LoadScene("OverWorldMapUpdate");
     }
 
     void Update()
