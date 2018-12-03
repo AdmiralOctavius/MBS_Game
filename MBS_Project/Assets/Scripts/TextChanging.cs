@@ -9,46 +9,27 @@ public class TextChanging : MonoBehaviour {
 
     public List<string> textHolder;
 
-    public string scene = "FightSceen";
-
-    //string currentText;
+    public string scene = "FightSceenTest";
 
     int currentSpot = 0;
 
     public Text textTab;
 
-    FileStream content = new FileStream("Speaking.txt", FileMode.Open, FileAccess.Read);
+    int counter = 0;
 
-    //StreamReader inp_stm = new StreamReader("Speaking.txt");
+    StreamReader streamContent = new StreamReader("Speaking.txt");
 
-    //void readTextFile(string file_path)
-    //{
-    //    while (!inp_stm.EndOfStream)
-    //    {
-    //        string inp_ln = inp_stm.ReadLine();
-    //
-    //        foreach (var read in inp_ln)
-    //        {
-    //            textHolder.Add(str(read));
-    //        }
-    //    }
-    //
-    //    inp_stm.Close();
-    //}
-
-    // Use this for initialization
-    void Start () {
-        using (var streamContent = new StreamReader(content))
+// Use this for initialization
+void Start () {
+        using (streamContent)
         {
             string linebyline;
+
             while ((linebyline = streamContent.ReadLine()) != null)
             {
                 textHolder.Add(linebyline);
             }
         }
-
-
-            //readTextFile("Speaking.txt");
 
     }
 	
@@ -58,30 +39,35 @@ public class TextChanging : MonoBehaviour {
         {
             currentSpot++;
 
-            if (textHolder.Count > 0)
+            counter++;
+
+            if (textHolder.Count - 1 > 0)
             {
                 textTab.text = textHolder[currentSpot];
             }
-            
-            else 
-            {
-                SceneManager.LoadScene(scene);
-            }
-        }
+
+       
+
+    }
 
         if (Input.GetButtonDown("Submit"))
         {
             currentSpot++;
 
-            if (textHolder.Count > 0)
+            if (textHolder.Count - 1 > 0)
             {
                 textTab.text = textHolder[currentSpot];
             }
 
-            else
-            {
-                SceneManager.LoadScene(scene);
-            }
         }
+
+        if (counter == 37)
+        {
+            SceneManager.LoadScene(scene);
+        }
+
+
     }
+
+
 }

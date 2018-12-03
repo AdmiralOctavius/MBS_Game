@@ -617,11 +617,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textHolder:
-  - Text 1
-  - Text 2
-  - Text 3
-  - Text 4
-  - Text 5
+  - Who would of thought it would be like this?
+  scene: FightSceenTest
   textTab: {fileID: 769651071}
 --- !u!4 &1525751769
 Transform:
