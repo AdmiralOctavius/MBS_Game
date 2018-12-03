@@ -766,7 +766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9298bb5e4020a8848968031999c4bb56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puff: {fileID: 1798702234771410, guid: 022a5022c17b5d84fbb37d71085f9b8f, type: 2}
+  puff: {fileID: 1737004078634132, guid: 8910d1c5c13efaa4abffd65a0421012e, type: 2}
   puffRate: 2
 --- !u!212 &1608998395
 SpriteRenderer:
