@@ -291,14 +291,14 @@ public class UI_Controller : MonoBehaviour {
                             }
                             else if (currentCursorPos == 1)
                             {
-                                combatController.GetComponent<CombatScript>().CombatForAttack();
+                                combatController.GetComponent<CombatScript>().PlayerDefending(3);
                                 Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
                                 Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);
 
                             }
                             else if (currentCursorPos == 2)
                             {
-                                combatController.GetComponent<CombatScript>().CombatForAttack();
+                                combatController.GetComponent<CombatScript>().EnemenyAttacking(8);
                                 Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
                                 Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);
 

@@ -12,6 +12,7 @@ public class CombatScript : MonoBehaviour
     public Slider playerHPBar;
     public Slider enemyHPBar;
     public bool time = false;
+    public bool fullOut = false;
 
     public bool hasSmoked = false;
     public int smokingDelay;
@@ -74,6 +75,14 @@ public class CombatScript : MonoBehaviour
             StartCoroutine(CombatText(3));
             SceneManager.LoadScene("Menu");
         }
+
+        if(fullOut == true)
+        {
+            combatText.text = "You need to catch your breath after that attack.";
+            fullOut = false;
+            StartCoroutine(CombatText(2));
+            
+        }
     }
 
     //Player attack function
@@ -87,6 +96,23 @@ public class CombatScript : MonoBehaviour
         //time = false;
 
         enemyHp -= playerAttack;
+        enemyHPBar.value = enemyHp;
+    }
+
+    public void PlayerDefending(int choice)
+    {
+        combatText.text = "The player braces for the attack and takes 0 damage!";
+        StartCoroutine(CombatText(choice));
+        
+    }
+
+    public void PlayerFullOutAttack(int choice)
+    {
+        combatText.text = "The player puts all their energy into this attack, dealing " + (playerAttack * 2).ToString() + " damage!";
+        StartCoroutine(CombatText(choice));
+
+        fullOut = true;
+        enemyHp -= (playerAttack * 2);
         enemyHPBar.value = enemyHp;
     }
 
@@ -303,6 +329,16 @@ public class CombatScript : MonoBehaviour
                 {
                     hobbyDelay = 5;
                     Hobby(3);
+                }
+                //defend
+                else if(choice == 7)
+                {
+                    PlayerDefending(3);
+                }
+                //fullout
+                else if(choice == 8)
+                {
+                    PlayerFullOutAttack(3);
                 }
             }
 
