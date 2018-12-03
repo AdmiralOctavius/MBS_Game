@@ -5,6 +5,7 @@ using UnityEngine;
 public class MG2PlayerScript : MonoBehaviour
 {
     public float speed = 0, walkSpeed = 5, sprintSpeed = 15;
+    public int toys = 0;
 
     public void SetRespawnPoint(Vector2 vec)
     {
