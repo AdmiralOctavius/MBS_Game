@@ -455,7 +455,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 65ab7cd990950df49beed98fc9c5aa2b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -473,8 +473,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 578208895}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.14, y: 0.68, z: 0}
-  m_LocalScale: {x: 23.905495, y: 23.905495, z: 23.905495}
+  m_LocalPosition: {x: 2.01, y: 0.55, z: 0}
+  m_LocalScale: {x: 0.41300958, y: 0.41300958, z: 0.41300958}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -635,6 +635,29 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 332676103}
   m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &1683273731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1774001009285482, guid: 3e1a267c4adab294286667acc5bfb08e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1889083326}
+--- !u!114 &1683273732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1683273731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0219f6cecc461439bcbbc8b377d4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BeatMinigame: 1
+  BeatMinigame2: 1
+  BeatMinigame3: 1
+  PlayerAttack: 0
+  PlayerHP: 0
+  PlayerDefense: 0
+  PlayerSpeed: 0
 --- !u!1001 &1889083326
 Prefab:
   m_ObjectHideFlags: 0
@@ -737,7 +760,8 @@ Prefab:
       propertyPath: combatController
       value: 
       objectReference: {fileID: 2003449368}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114036757442293954, guid: 3e1a267c4adab294286667acc5bfb08e, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 3e1a267c4adab294286667acc5bfb08e, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &2003449368
@@ -806,6 +830,7 @@ MonoBehaviour:
   playerHPBar: {fileID: 1414936058}
   enemyHPBar: {fileID: 264891780}
   time: 0
+  fullOut: 0
   hasSmoked: 0
   smokingDelay: 0
   hasRelaxed: 0
@@ -844,9 +869,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0219f6cecc461439bcbbc8b377d4d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BeatMinigame: 0
-  BeatMinigame2: 0
-  BeatMinigame3: 0
+  BeatMinigame: 1
+  BeatMinigame2: 1
+  BeatMinigame3: 1
   PlayerAttack: 0
   PlayerHP: 0
   PlayerDefense: 0
