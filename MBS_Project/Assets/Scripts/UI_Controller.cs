@@ -330,11 +330,29 @@ public class UI_Controller : MonoBehaviour {
                             }
                             else if (currentCursorPos == 1)
                             {
-
+                                if (GetComponent<PlayerVariables>().BeatMinigame == 2)
+                                {
+                                    combatController.GetComponent<CombatScript>().EnemenyAttacking(5);
+                                    Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
+                                    Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);
+                                }
+                                else
+                                {
+                                    combatController.GetComponent<CombatScript>().Relaxing(3);
+                                }
                             }
                             else if (currentCursorPos == 2)
                             {
-
+                                if (GetComponent<PlayerVariables>().BeatMinigame == 3)
+                                {
+                                    combatController.GetComponent<CombatScript>().EnemenyAttacking(6);
+                                    Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
+                                    Debug.Log("Player Health: " + combatController.GetComponent<CombatScript>().playerHp);
+                                }
+                                else
+                                {
+                                    combatController.GetComponent<CombatScript>().Hobby(3);
+                                }
                             }
                             else
                             {

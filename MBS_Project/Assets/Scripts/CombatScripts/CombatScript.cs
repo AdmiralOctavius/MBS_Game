@@ -19,6 +19,9 @@ public class CombatScript : MonoBehaviour
     public bool hasRelaxed = false;
     public int relaxDelay;
 
+    public bool hasHobby = false;
+    public int hobbyDelay;
+
 
     //Im not calling GetComponent Every god damn time
     public int playerAttack;
@@ -129,32 +132,68 @@ public class CombatScript : MonoBehaviour
 
     public void Relaxing(int choice)
     {
-        //if (GetComponent<PlayerVariables>().BeatMinigame == 1)
+        if (GetComponent<PlayerVariables>().BeatMinigame == 2)
+        {
+            combatText.text = "The player sists down and finds a happy place in their mind, allowing them to relax. Thier Attack increases by 2 and all atacks are reduced by 2 for 3 turns!";
+            StartCoroutine(CombatText(choice));
 
-        combatText.text = "The player sists down and finds a happy place in their mind, allowing them to relax. Thier Attack increases by 2 and all atacks are reduced by 2 for 3 turns!";
-        StartCoroutine(CombatText(choice));
+            playerAttack += 2;
+            enemyAttack -= 2;
+            hasRelaxed = true;
+        }
 
-        playerAttack += 2;
-        enemyAttack -= 2;
-        hasRelaxed = true;
+        else
+        {
+            combatText.text = "You do not have this ability.";
+            StartCoroutine(CombatText(choice));
+        }
+    }
 
-        //else
-        //{
-        //    combatText.text = "You do not have this ability.";
-        //    StartCoroutine(CombatText(choice));
-        //}
+    public void Hobby(int choice)
+    {
+        if (GetComponent<PlayerVariables>().BeatMinigame == 3)
+        {
+            combatText.text = "The player starts to work on a hobby, confusing the monster! The monster has a chance to miss its attacks for 5 turns!";
+            StartCoroutine(CombatText(choice));
+
+            hasHobby = true;
+        }
     }
 
     //Enemey Attack Function
     public void EnemenyAttacking(int choice)
     {
-        Debug.Log("The enemy attacked");
-        combatText.text = "The enemy attacked the player and did " + enemyAttack.ToString() + " damage!";
-        StartCoroutine(CombatText(choice));
+        if(hasHobby == false)
+        {
+            Debug.Log("The enemy attacked");
+            combatText.text = "The enemy attacked the player and did " + enemyAttack.ToString() + " damage!";
+            StartCoroutine(CombatText(choice));
        
 
-        playerHp -= enemyAttack;
-        playerHPBar.value = playerHp;
+            playerHp -= enemyAttack;
+            playerHPBar.value = playerHp;
+        }
+        else
+        {
+            int evasion = Random.Range(1, 100);
+            Debug.Log(evasion);
+
+            if(evasion > 25)
+            {
+                Debug.Log("The enemy attacked");
+                combatText.text = "The enemy attacked the player and did " + enemyAttack.ToString() + " damage!";
+                StartCoroutine(CombatText(choice));
+
+
+                playerHp -= enemyAttack;
+                playerHPBar.value = playerHp;
+            }
+            else 
+            {
+                combatText.text = "The enemy attacked the hobby instead of the player!";
+                StartCoroutine(CombatText(choice));
+            }
+        }
     }
 
     public void CombatForAttack()
@@ -258,6 +297,12 @@ public class CombatScript : MonoBehaviour
                 {
                     relaxDelay = 3;
                     Relaxing(3);
+                }
+                //hobby
+                else if(choice == 6)
+                {
+                    hobbyDelay = 5;
+                    Hobby(3);
                 }
             }
 
