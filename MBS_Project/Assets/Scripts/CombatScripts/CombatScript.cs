@@ -65,7 +65,7 @@ public class CombatScript : MonoBehaviour
             StartCoroutine(CombatText(3));
             //StopCoroutine(CombatText(3));
 
-            SceneManager.LoadScene("OverWorldMap");
+            SceneManager.LoadScene("OverWorldMapUpdate");
         }
         if(playerHp <= 0)
         {

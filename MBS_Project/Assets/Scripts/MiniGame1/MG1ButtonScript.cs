@@ -13,7 +13,7 @@ public class MG1ButtonScript : MonoBehaviour
 
     public void Quit()
     {
-        SceneManager.LoadScene("OverWorldMap");
+        SceneManager.LoadScene("OverWorldMapUpdate");
     }
 
     void Update()

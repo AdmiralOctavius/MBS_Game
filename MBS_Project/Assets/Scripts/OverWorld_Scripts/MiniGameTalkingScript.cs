@@ -29,7 +29,7 @@ public class MiniGameTalkingScript : MonoBehaviour
             if (Input.GetButton("Submit"))
             {
                 playerVars.GetComponent<PlayerVariables>().SetPlayerVariable(5, player.transform.position.x);
-                playerVars.GetComponent<PlayerVariables>().SetPlayerVariable(6, player.transform.position.x);
+                playerVars.GetComponent<PlayerVariables>().SetPlayerVariable(6, player.transform.position.y);
 
                 SceneManager.LoadScene("MG1MainMenu");
             }
