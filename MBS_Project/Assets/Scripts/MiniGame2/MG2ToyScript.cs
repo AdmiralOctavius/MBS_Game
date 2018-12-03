@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MG2ToyScript : MonoBehaviour {
 
-    public bool hasToy;
+    //public bool hasToy;
     // Use this for initialization
     void Start()
     {
-        hasToy = false;
+        //hasToy = false;
     }
 
     // Update is called once per frame
@@ -18,9 +18,11 @@ public class MG2ToyScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-       // if (col.gameObject == Globals.playerObject)
+        // if (col.gameObject == Globals.playerObject)
         //{
-            
+        //col.GameObject.toys++;
+        //this.Destroy();
         //}
+        Debug.Log("yeet");
     }
 }
