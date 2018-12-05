@@ -6,14 +6,14 @@ using UnityEngine;
 
 public class MG1Timer : MonoBehaviour
 {
-    private float timeLeft;
+    public float timeLeft = 30.0f;
     //private bool haveWon;
 
     Text text;
 
 	void Start ()
     {
-        timeLeft = 30.0f;
+        //timeLeft = 30.0f;
         text = GetComponent<Text>();
 
         //haveWon = false;
