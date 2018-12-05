@@ -11,13 +11,14 @@ public class MG2ToyScript : MonoBehaviour {
     }
 
     void Update() {
+        
 
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        //col.GameObject.toys++;
-        //this.Destroy();
-        Debug.Log("yeet");
+        MG2PlayerScript.toys += 1;
+        MG2ToyScript.Destroy(gameObject);
+        Debug.Log("toys: " + MG2PlayerScript.toys);
     }
 }

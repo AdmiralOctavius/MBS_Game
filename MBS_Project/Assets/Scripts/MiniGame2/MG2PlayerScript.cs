@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class MG2PlayerScript : MonoBehaviour
 {
     public float speed = 0, walkSpeed = 5, sprintSpeed = 15;
-    public int toys = 0;
+    public static int toys = 0;
 
     public void SetRespawnPoint(Vector2 vec)
     {
@@ -13,6 +12,7 @@ public class MG2PlayerScript : MonoBehaviour
 
     void Start()
     {
+        toys = 0;
     }
 
     void Update()//More responsive - checks our input each frame
@@ -69,12 +69,15 @@ public class MG2PlayerScript : MonoBehaviour
         else if (movement < 0)
             sr.flipX = true;
 
-       /* Animator anim = GetComponent<Animator>();
+        /* Animator anim = GetComponent<Animator>();
 
-        if (Mathf.Abs(movement - 0) > float.Epsilon)
-            anim.SetBool("isWalking", true);
-        else
-            anim.SetBool("isWalking", false);*/
+         if (Mathf.Abs(movement - 0) > float.Epsilon)
+             anim.SetBool("isWalking", true);
+         else
+             anim.SetBool("isWalking", false);*/
+
+        if (toys == 5)
+            SceneManager.LoadScene("MG2YouWin");
     }
 }
 
