@@ -37,7 +37,7 @@ public class MG2PlayerScript : MonoBehaviour
                 {
                     rb.velocity = new Vector2(rb.velocity.x, 0);//Ignore previous falling velocity so we jump the full amount each time.
 
-                    rb.AddForce(Vector2.up * 400);
+                    rb.AddForce(Vector2.up * 320);
 
                     break;
                 }
