@@ -275,6 +275,7 @@ public class UI_Controller : MonoBehaviour {
 
                     Debug.Log("Got the submit on element: " + currentCursorPos + ". Which Should call: " + SelectableElementList[currentCursorPos].gameObject.GetComponentInChildren<Text>().text);
                     Debug.Log("Attack menu:" + attackMenu.ToString() + "| magic menu:" + magicMenu.ToString() + "item menu:" + itemMenu.ToString());
+                    Debug.Log("Current Cursor Pos: " + currentCursorPos);
                     //This is where the call to a specific action would be on the ActionMenu
                     if (attackMenu || magicMenu || itemMenu)
                     {
@@ -333,7 +334,7 @@ public class UI_Controller : MonoBehaviour {
                             }
                             else if (currentCursorPos == 1)
                             {
-                                if (GetComponent<PlayerVariables>().BeatMinigame == 2)
+                                if (GetComponent<PlayerVariables>().BeatMinigame2 == 1)
                                 {
                                     combatController.GetComponent<CombatScript>().EnemenyAttacking(5);
                                     Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
@@ -346,7 +347,7 @@ public class UI_Controller : MonoBehaviour {
                             }
                             else if (currentCursorPos == 2)
                             {
-                                if (GetComponent<PlayerVariables>().BeatMinigame == 3)
+                                if (GetComponent<PlayerVariables>().BeatMinigame3 == 1)
                                 {
                                     combatController.GetComponent<CombatScript>().EnemenyAttacking(6);
                                     Debug.Log("Enemy hp: " + combatController.GetComponent<CombatScript>().enemyHp);
