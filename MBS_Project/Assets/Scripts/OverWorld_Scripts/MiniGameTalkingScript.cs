@@ -8,6 +8,7 @@ public class MiniGameTalkingScript : MonoBehaviour
 
     public GameObject playerVars;
     public GameObject player;
+    public string miniGameScene;
 
     // Use this for initialization
     void Start()
@@ -31,7 +32,7 @@ public class MiniGameTalkingScript : MonoBehaviour
                 playerVars.GetComponent<PlayerVariables>().SetPlayerVariable(5, player.transform.position.x);
                 playerVars.GetComponent<PlayerVariables>().SetPlayerVariable(6, player.transform.position.y);
 
-                SceneManager.LoadScene("MG1MainMenu");
+                SceneManager.LoadScene(miniGameScene);
             }
         }
     }

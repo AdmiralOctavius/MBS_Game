@@ -8,6 +8,9 @@ public class TalkingScript : MonoBehaviour
 
     public GameObject playerVars;
     public GameObject player;
+    public bool TalkedTo = false;
+    public string targetScene;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -18,6 +21,11 @@ public class TalkingScript : MonoBehaviour
 	void Update ()
     {
         this.GetComponent<Rigidbody2D>().WakeUp();
+
+        if(TalkedTo == true)
+        {
+            Destroy(gameObject);
+        }
 	}
     
 
@@ -29,7 +37,8 @@ public class TalkingScript : MonoBehaviour
             {
                 playerVars.GetComponent<PlayerVariables>().SetPlayerVariable(5, player.transform.position.x);
                 playerVars.GetComponent<PlayerVariables>().SetPlayerVariable(6, player.transform.position.y);
-                SceneManager.LoadScene("Visual 1");
+                TalkedTo = true;
+                SceneManager.LoadScene(targetScene);
             }
         }
     }

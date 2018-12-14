@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MiniGameDisappear : MonoBehaviour
+public class NPCDisappear : MonoBehaviour
 {
 
     public GameObject stats;
