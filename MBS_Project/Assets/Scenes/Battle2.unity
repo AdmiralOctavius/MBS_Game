@@ -165,7 +165,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: af0b0c0f74d6d644d9a2a56b476b1886, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -227,6 +227,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 82930958487854556, guid: 76940cf20c0d05d4bb9c69ad14fbd6f1,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2122b4afb82c36b4f881546581a6b646, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76940cf20c0d05d4bb9c69ad14fbd6f1, type: 2}
   m_IsPrefabAsset: 0
@@ -442,6 +447,61 @@ Prefab:
       propertyPath: combatController
       value: 
       objectReference: {fileID: 2095032602}
+    - target: {fileID: 1744326210279560, guid: 3e1a267c4adab294286667acc5bfb08e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204677946902948, guid: 3e1a267c4adab294286667acc5bfb08e,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204677946902948, guid: 3e1a267c4adab294286667acc5bfb08e,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204677946902948, guid: 3e1a267c4adab294286667acc5bfb08e,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 1c4264d1cdcae5c4bba092f1d19677a6,
+        type: 3}
+    - target: {fileID: 224723783283750844, guid: 3e1a267c4adab294286667acc5bfb08e,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224723783283750844, guid: 3e1a267c4adab294286667acc5bfb08e,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224723783283750844, guid: 3e1a267c4adab294286667acc5bfb08e,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224723783283750844, guid: 3e1a267c4adab294286667acc5bfb08e,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224723783283750844, guid: 3e1a267c4adab294286667acc5bfb08e,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 668.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 224723783283750844, guid: 3e1a267c4adab294286667acc5bfb08e,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -183
+      objectReference: {fileID: 0}
+    - target: {fileID: 224723783283750844, guid: 3e1a267c4adab294286667acc5bfb08e,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 75.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e1a267c4adab294286667acc5bfb08e, type: 2}
   m_IsPrefabAsset: 0
@@ -496,7 +556,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1b6b84003f1b44746ab8187e954c1eaa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e547acce7aefb7c448e619b4804051cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -841,7 +901,7 @@ Prefab:
     - target: {fileID: 114289791336388320, guid: b2da895fa238f4340833faff8f2bc167,
         type: 2}
       propertyPath: m_Value
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 224116357524489928, guid: b2da895fa238f4340833faff8f2bc167,
         type: 2}
@@ -857,6 +917,11 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114289791336388320, guid: b2da895fa238f4340833faff8f2bc167,
+        type: 2}
+      propertyPath: m_MaxValue
+      value: 75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2da895fa238f4340833faff8f2bc167, type: 2}
@@ -981,6 +1046,8 @@ MonoBehaviour:
   PlayerHP: 0
   PlayerDefense: 0
   PlayerSpeed: 0
+  playerOverworldX: 0
+  playerOverworldY: 0
 --- !u!114 &2095032604
 MonoBehaviour:
   m_ObjectHideFlags: 0
