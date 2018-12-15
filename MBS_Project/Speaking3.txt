@@ -1,0 +1,33 @@
+N: While walking around on the campus grounds… You hear a voice coming from a window nearby.
+N: Upon closer inspection you realize it’s a pair of your friends.
+E1: -nd I said that they shouldn’t be doing that!
+E2: Well let’s not be hasty, I don’t think it’s like that…
+E1: Of course it is! There’s no way something like that is accidental.
+N: They’re talking about something heated obviously.
+E2: I don’t think you should talk about them like that, look we tried our best with that competition, there’s nothing we can do now.
+N: Wait a minute, they’re talking about the group competition that you had competed in together.
+E1: I’m telling you they legged us, they never wanted to win!
+N: They’re definitely talking about you. That’s pretty awful of them to be saying.
+N: ...This hurts pretty bad.
+P:  I gotta figure out what in the world is happening.
+N: Not some time later….
+P: Hey Jimmy!
+E1: Oh. Hey, what’s going on.
+P: I heard some of the stuff you were saying earlier, what the heck are you going on about?
+N: They flinch, but wave their hands and puff about.
+E1: I was just kidding around man, yknow?
+P: It sure didn’t sound like it.
+E1: Look I didn’t realize that kinda team joking would hurt your feelings, I’ll stop if you want me to ok?
+N: You squint, but back off, a bit too tired to deal with digging into this right not.
+P: Fine… Just, please don’t say stuff like that again? If you’ve got a problem come to me okay?
+N: They grin, giving you a thumbs up.
+E1: You got it! Hey I gotta run, see you!
+N: You head your separate ways.
+N: Later on however you hear the same friend talking to one of their friends. 
+E1: And they didn’t do their part of the work! They worked with us so little over the course of the project! Then we lost after the time period was up!
+N: They’re talking about you again…
+N: They’re saying those thingsssss about you again…
+N: They’re not being true to their wordssss
+N: You hadn’t noticed the shadows until it was too late.
+N: You feel their words coil around you as he arrives.
+N: It turns dark.

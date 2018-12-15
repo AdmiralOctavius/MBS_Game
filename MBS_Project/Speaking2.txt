@@ -1,0 +1,45 @@
+D: After class you step up to the professor to talk.
+P: Hello Professor Carmine.
+E: Oh hello! How are you doing, something on your mind?
+P: Yeah I’ve been thinking about what I should be doing after college. It’s been kinda eating me up.
+E: Well that’s perfectly reasonable! It’s never too soon to start thinking about the future!
+N: It certainly felt like it for you, the weight of school and the future weighs heavy.
+P: Well what do you recommend?
+E: Hmmm. Well I would say that you should look into continuing with the path you’re on, you certainly do well!
+E: Maybe take a minor to widen your potential after school, just to be safe.
+P: Thanks Professor, I gotta run.
+E: Anytime, anytime!
+N:Later on…
+E: Hey! What’s up?
+N: It’s one of your friends, walking the same direction as you.
+P: Oh hey. Not much, just got stuff on my mind.
+N: Your friend smiles as they toss a penny at you.
+P: Ow!
+N: You laugh a little, the literal joke shining through.
+P: I’m just thinking about stuff after school, I really don’t know what I want to do honestly.
+E: Want my opinion? Move on from here as fast as possible, there’s supposed to be some new stuff going on on the east coast in your field.
+N: The east coast is a real distance from here…
+P: That’s a bit extreme of a move.
+N: Your friend shrugs.
+E: I don’t plan on sticking around over here either, but considering there’s not much room for party planner and swimming instructor double majors that makes sense. There’s not much room around here for yours either.
+N: You nod, feeling a little more down after the harsh truth coming out.
+E: Ah, this is my building, gotta run!
+P: Bye!
+N: You wave, not really sure what to think now.
+N: Not too long after getting home, your sibling peeks in.
+E: Hey are you doing alright? 
+N: You look up from the little daze you were in at your computer, and shrug. Your sibling shakes their head, stepping in.
+E: What’s wrong?
+P: I just… I’ve got no idea what to do after college.
+N: Your sibling frowns, crossing their arms.
+E: Are you not happy with your degree?
+P: Well…
+E: If you are you really should figure out what you want to do then. There’s no point in living life in a job that’s not fun for you.
+N: An alarm can faintly be heard going off in the kitchen.
+E: Shoot that’s my food, I’ll be back.
+P: Wait I-
+N: And like that they’re gone.
+N:
+N: All the advice you’ve received has been solid, but all conflicting. There’s so many choices now.
+N: You see the paths of the future, but there’s so many you become overwhelmed, a tidal wave of emotion consuming you.
+N: ...It’s arrived...
