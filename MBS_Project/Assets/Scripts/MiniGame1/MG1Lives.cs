@@ -31,5 +31,4 @@ public class MG1Lives : MonoBehaviour
         if (health <= 0)
             isDead = true;
     }
-
 }

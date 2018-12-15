@@ -1,5 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
+ * Jenna Meador
+ * Player script for MG3 - controls player movement
+ */
+
 using UnityEngine;
 
 public class MG3PlayerScript : MonoBehaviour
@@ -10,7 +13,6 @@ public class MG3PlayerScript : MonoBehaviour
 
     public GameObject projectile;
 
-	// Use this for initialization
 	void Start ()
     {
         speed = 2;
@@ -18,7 +20,6 @@ public class MG3PlayerScript : MonoBehaviour
 
 	}
 	
-	// Update is called once per frame
 	void Update ()
     {
         if (Input.GetAxis("Jump") > 0)
@@ -38,6 +39,4 @@ public class MG3PlayerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
             gameObject.transform.Rotate(0, 0, -150 * Time.deltaTime);
     }
-
-
 }

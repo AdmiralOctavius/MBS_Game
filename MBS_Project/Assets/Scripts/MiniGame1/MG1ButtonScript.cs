@@ -30,6 +30,5 @@ public class MG1ButtonScript : MonoBehaviour
             else
                 Quit();
         }
-
     }
 }

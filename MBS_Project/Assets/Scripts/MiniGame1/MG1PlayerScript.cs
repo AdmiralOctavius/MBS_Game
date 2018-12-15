@@ -12,15 +12,9 @@ public class MG1PlayerScript : MonoBehaviour
 
     private float lastPuffTime = float.MinValue;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         gameObject.GetComponent<Rigidbody2D>().velocity = (0 * gameObject.transform.up);
-
 
         if (Input.GetAxis("Submit") > 0)
         {
