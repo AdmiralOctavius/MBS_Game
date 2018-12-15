@@ -1,5 +1,5 @@
 ﻿/*
- * Jenna Meador
+ * Jenna Meador, Isaac Bennett (SetPlayerVariable)
  * Player script for MG2 - controls button in menu/win/lose scenes
  */
 

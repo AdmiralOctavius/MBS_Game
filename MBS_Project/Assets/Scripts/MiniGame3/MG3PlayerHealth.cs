@@ -1,5 +1,5 @@
 ﻿/*
- * Jenna Meador
+ * Jenna Meador, Isaac Bennett (SetPlayerVariable)
  * Health script for MG3 - controls health and score of player,
  * prints health and score, and handles win/lose scene
  */

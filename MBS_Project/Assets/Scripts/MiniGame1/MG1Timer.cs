@@ -1,5 +1,5 @@
 ﻿/*
- * Jenna Meador
+ * Jenna Meador, Isaac Bennett (SetPlayerVariable)
  * Timer for MG1 - sets player variable and loads win scene when timer ends
  */
 
