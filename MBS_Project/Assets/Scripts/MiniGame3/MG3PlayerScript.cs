@@ -15,6 +15,7 @@ public class MG3PlayerScript : MonoBehaviour
     {
         speed = 2;
         fireRate = 2;
+
 	}
 	
 	// Update is called once per frame
@@ -37,4 +38,6 @@ public class MG3PlayerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
             gameObject.transform.Rotate(0, 0, -150 * Time.deltaTime);
     }
+
+
 }

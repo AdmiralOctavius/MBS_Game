@@ -6,6 +6,9 @@ TagManager:
   tags:
   - CombatText
   - TextArea
+  - Nightmare
+  - Sleeper
+  - Projectile
   layers:
   - Default
   - TransparentFX
