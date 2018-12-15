@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ * Name: Trey, Isaac
+ * Purpose: Script for moving around in the over world, now contains saved position for the play and animation control  
+ * */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

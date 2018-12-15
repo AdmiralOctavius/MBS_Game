@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿/*
+ * Name: Trey
+ * Purpose: Overworld camera controller
+ * */
+
+
+using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
