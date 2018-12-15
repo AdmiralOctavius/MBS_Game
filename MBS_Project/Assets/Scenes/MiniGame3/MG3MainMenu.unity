@@ -722,8 +722,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Directions:
 
-    Keep the nightmares from disturbing the sleeping person by moving left and right,
-    and by hitting '
+    Keep the nightmares from disturbing the sleeping person by moving left and right
+    (A and D), and by hitting space/Y to shoot!'
 --- !u!222 &1600571257
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -776,7 +776,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Directions:\n Press space to release a burst of air and\nkeep the balloon
+  m_Text: "Directions:\n Press space/Y to release a burst of air and\nkeep the balloon
     in the air for as long as possible! \n\nUse arrow keys to move left and right!"
 --- !u!222 &1454245587
 CanvasRenderer:

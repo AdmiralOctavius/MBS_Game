@@ -951,7 +951,7 @@ MonoBehaviour:
 
     Move left and right to collect all of the toys your brother has hidden!
 
-    Press space to jump!'
+    Press space/Y to jump!'
 --- !u!222 &1184952828
 CanvasRenderer:
   m_ObjectHideFlags: 0
