@@ -1,5 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
+ * Jenna Meador
+ * Nightmare spawner script for MG3 - spawns three different nightmares from top of screen
+ */
+
 using UnityEngine;
 
 public class MG3NightmareSpawner : MonoBehaviour {
@@ -35,7 +38,6 @@ public class MG3NightmareSpawner : MonoBehaviour {
 
             GameObject newNightmare = Instantiate(currentNightmare, gameObject.transform.position, Quaternion.identity);
             newNightmare.transform.position += new Vector3(Random.Range(-8.0f, 8), 0, 0);
-
         }
 	}
 }

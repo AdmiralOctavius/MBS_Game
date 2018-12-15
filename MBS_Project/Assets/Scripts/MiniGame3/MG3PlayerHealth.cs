@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿/*
+ * Jenna Meador
+ * Health script for MG3 - controls health and score of player,
+ * prints health and score, and handles win/lose scene
+ */
+
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -13,19 +19,11 @@ public class MG3PlayerHealth : MonoBehaviour {
     public Text scoreText;
     public Text healthText;
 
-
-    // Use this for initialization
     void Start ()
     {
         health = maxHealth;
         score = 0;
     }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
 
     public void ChangeHealth(float damage)
     {

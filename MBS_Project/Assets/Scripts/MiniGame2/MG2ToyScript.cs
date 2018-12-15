@@ -1,20 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
+ * Jenna Meador
+ * Toy script for MG2 - trigger for "picking up" toys
+ */
+
 using UnityEngine;
 
-public class MG2ToyScript : MonoBehaviour {
-
-    //public bool hasToy;
-    void Start()
-    {
-        //hasToy = false;
-    }
-
-    void Update() {
-        
-
-    }
-
+public class MG2ToyScript : MonoBehaviour
+{
     void OnTriggerEnter2D(Collider2D col)
     {
         MG2PlayerScript.toys += 1;

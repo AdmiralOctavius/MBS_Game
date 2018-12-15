@@ -1,5 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
+ * Jenna Meador
+ * Nightmare script for MG3 - defines nightmare variables and changes health/score
+ */
+
 using UnityEngine;
 
 public class MG3NightmareScript : MonoBehaviour
@@ -17,12 +20,6 @@ public class MG3NightmareScript : MonoBehaviour
 
         sleeper = GameObject.FindGameObjectWithTag("Sleeper");
     }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
 
     void OnCollisionEnter2D(Collision2D col)
     {

@@ -1,4 +1,9 @@
-﻿using UnityEngine.SceneManagement;
+﻿/*
+ * Jenna Meador
+ * Button script for MG3 - controls button in menu/win/lose scenes
+ */
+
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class MG3ButtonScript : MonoBehaviour
@@ -25,6 +30,5 @@ public class MG3ButtonScript : MonoBehaviour
             else
                 Quit();
         }
-
     }
 }

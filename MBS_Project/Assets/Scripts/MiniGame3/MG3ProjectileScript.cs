@@ -1,5 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
+ * Jenna Meador
+ * Projectile script for MG3 - controls projectiles that player fires
+ */
+
 using UnityEngine;
 
 public class MG3ProjectileScript : MonoBehaviour {
@@ -12,12 +15,6 @@ public class MG3ProjectileScript : MonoBehaviour {
         gameObject.GetComponent<Rigidbody2D>().velocity = (10 * gameObject.transform.right);
 	}
 	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
-
     void DieOff()
     {
         Destroy(gameObject);

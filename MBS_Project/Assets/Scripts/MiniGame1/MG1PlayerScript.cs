@@ -1,5 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
+ * Jenna Meador
+ * Player script for MG1 - controls movement and "puff"
+ */
+
 using UnityEngine;
 
 public class MG1PlayerScript : MonoBehaviour
@@ -9,15 +12,9 @@ public class MG1PlayerScript : MonoBehaviour
 
     private float lastPuffTime = float.MinValue;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         gameObject.GetComponent<Rigidbody2D>().velocity = (0 * gameObject.transform.up);
-
 
         if (Input.GetAxis("Submit") > 0)
         {

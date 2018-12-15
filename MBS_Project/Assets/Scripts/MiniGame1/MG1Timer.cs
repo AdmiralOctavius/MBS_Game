@@ -1,22 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
+ * Jenna Meador
+ * Timer for MG1 - sets player variable and loads win scene when timer ends
+ */
+
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
 
 public class MG1Timer : MonoBehaviour
 {
-    public float timeLeft = 30.0f;
-    //private bool haveWon;
+    public float timeLeft;
 
     Text text;
 
 	void Start ()
     {
-        //timeLeft = 30.0f;
         text = GetComponent<Text>();
-
-        //haveWon = false;
+        timeLeft = 30.0f;
     }
 
     void Update ()
@@ -28,7 +28,6 @@ public class MG1Timer : MonoBehaviour
         {
             GetComponent<PlayerVariables>().SetPlayerVariable(0, 1);
             SceneManager.LoadScene("MG1YouWin");
-            //haveWon = true;
         }
     }
 }
