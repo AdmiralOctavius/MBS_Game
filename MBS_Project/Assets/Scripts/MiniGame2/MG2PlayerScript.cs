@@ -77,7 +77,13 @@ public class MG2PlayerScript : MonoBehaviour
              anim.SetBool("isWalking", false);*/
 
         if (toys == 5)
+        {
+            GetComponent<PlayerVariables>().SetPlayerVariable(7, 1);
             SceneManager.LoadScene("MG2YouWin");
+
+        }
+
+        
     }
 }
 

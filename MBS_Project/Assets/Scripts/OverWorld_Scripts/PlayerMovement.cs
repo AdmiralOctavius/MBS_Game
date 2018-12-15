@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetAxisRaw("Horizontal") == -1)
             {
                 gameObject.transform.position += new Vector3(-0.04f, 0, 0);
-                gameObject.GetComponent<SpriteRenderer>().flipX = false;
+                gameObject.GetComponent<SpriteRenderer>().flipX = false ;
                 gameObject.GetComponent<Animator>().SetBool("isWalking", true);
             }
 
