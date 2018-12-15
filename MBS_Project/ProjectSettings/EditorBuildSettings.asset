@@ -62,4 +62,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MiniGame3/MG3GamePlay.unity
     guid: 2ee6d48f0b8b85f48b1367592ffaa297
+  - enabled: 1
+    path: Assets/Scenes/MiniGame3/MG3MainMenu.unity
+    guid: 002724e829f6a054dad806c81934bdfb
+  - enabled: 1
+    path: Assets/Scenes/MiniGame3/MG3YouLose.unity
+    guid: ef7c48e20ad20c440b57436d57eb7404
+  - enabled: 1
+    path: Assets/Scenes/MiniGame3/MG3YouWin.unity
+    guid: d4c6bbd716d35fd46b11fa063bf0c08b
   m_configObjects: {}

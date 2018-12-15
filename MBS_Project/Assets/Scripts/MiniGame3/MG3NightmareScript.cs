@@ -6,6 +6,7 @@ public class MG3NightmareScript : MonoBehaviour
 {
     public float damageAmount;
     public float pointAmount;
+    GameObject sleeper;
 
     // Use this for initialization
     void Start ()
@@ -13,7 +14,9 @@ public class MG3NightmareScript : MonoBehaviour
         damageAmount = 5.0f;
         Invoke("DieOff", 3);
         pointAmount = 5.0f;
-	}
+
+        sleeper = GameObject.FindGameObjectWithTag("Sleeper");
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -29,10 +32,10 @@ public class MG3NightmareScript : MonoBehaviour
         {
             col.gameObject.GetComponent<MG3PlayerHealth>().ChangeHealth(-damageAmount);
         }
-        if (col.gameObject.tag == "Sleeper")
+        else
         {
-            col.gameObject.GetComponent<MG3PlayerHealth>().ChangeScore(pointAmount);
-
+            sleeper.gameObject.GetComponent<MG3PlayerHealth>().ChangeScore(pointAmount);
+            Destroy(col.gameObject);
         }
         //if player - change health
         //if projectile - destroy col.gameObject - change score
@@ -41,7 +44,6 @@ public class MG3NightmareScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         Destroy(gameObject);
-
     }
 
     void DieOff()
