@@ -76,13 +76,7 @@ public class CombatScript : MonoBehaviour
             SceneManager.LoadScene("Menu");
         }
 
-        if(fullOut == true)
-        {
-            combatText.text = "You need to catch your breath after that attack.";
-            fullOut = false;
-            StartCoroutine(CombatText(2));
-            
-        }
+        
     }
 
     //Player attack function
@@ -311,6 +305,13 @@ public class CombatScript : MonoBehaviour
                 else if( choice == 3)
                 {
                     //Do nothing, coroutine ends
+                    if (fullOut == true)
+                    {
+                        combatText.text = "You need to catch your breath after that attack.";
+                        fullOut = false;
+                        StartCoroutine(CombatText(2));
+
+                    }   
                 }
                 //smokes
                 else if( choice == 4)
