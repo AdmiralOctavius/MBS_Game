@@ -3983,6 +3983,7 @@ MonoBehaviour:
   - {fileID: 305282678}
   - {fileID: 358956201}
   - {fileID: 1281313729}
+  clicker: {fileID: 0}
   currentCursorPos: 0
   selectionInputHeld: 0
   UIBattle: 1
@@ -4832,8 +4833,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d736a8c3d5495f49b25b92ab72fd4c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHp: 50
-  enemyAttack: 10
+  enemyHp: 40
+  enemyAttack: 8
   enemyDeffense: 5
   enemySpeed: 5
 --- !u!114 &2003449371
