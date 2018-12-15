@@ -41,6 +41,7 @@ public class CombatScript : MonoBehaviour
     public int enemySpeed;
     public int enemyHp;
 
+
     void Start ()
     {
         //its ok to set the stats her ebecuase they wont need to be kept since fights wont be right after another
@@ -70,9 +71,12 @@ public class CombatScript : MonoBehaviour
             combatText.text = "You defeated the enemy!";
             StartCoroutine(CombatText(3));
             //StopCoroutine(CombatText(3));
-
-            SceneManager.LoadScene("OverWorldMapUpdate");
+            if (SceneManager.GetActiveScene().ToString() == "Battle5")
+                SceneManager.LoadScene("Win");
+            else
+                SceneManager.LoadScene("OverWorldMapUpdate");
         }
+        
         if(playerHp <= 0)
         {
             combatText.text = "Your emotions have consumed you!";
@@ -81,6 +85,7 @@ public class CombatScript : MonoBehaviour
             StartCoroutine(CombatText(3));
             SceneManager.LoadScene("Menu");
         }
+
 
         
     }
