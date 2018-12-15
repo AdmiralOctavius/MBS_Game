@@ -1,5 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
+ * Jenna Meador
+ * Player script for MG1 - controls movement and "puff"
+ */
+
 using UnityEngine;
 
 public class MG1PlayerScript : MonoBehaviour

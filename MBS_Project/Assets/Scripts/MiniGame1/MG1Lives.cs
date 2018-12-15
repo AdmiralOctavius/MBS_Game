@@ -1,7 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
+ * Jenna Meador
+ * Lives for MG1 - keeps track of player lives and loads lose scene if 0
+ */
+
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using UnityEngine;
 
 public class MG1Lives : MonoBehaviour

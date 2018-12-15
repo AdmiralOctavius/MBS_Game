@@ -1,5 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
+ * Jenna Meador
+ * Air script for MG1 - controls "puff" of air from player
+ */
+
 using UnityEngine;
 
 public class MG1AirScript : MonoBehaviour

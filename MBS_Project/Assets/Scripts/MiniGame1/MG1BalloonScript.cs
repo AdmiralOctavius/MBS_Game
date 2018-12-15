@@ -1,5 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
+ * Jenna Meador
+ * Balloon script for MG1 - respawns balloon if it falls
+ * past a certain point and causes to player to lose a life
+ */
+
 using UnityEngine;
 
 public class MG1BalloonScript : MonoBehaviour {
