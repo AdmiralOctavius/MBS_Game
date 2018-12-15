@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ * Name: Trey
+ * Purpose: Removes npc after talking to them
+ * */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

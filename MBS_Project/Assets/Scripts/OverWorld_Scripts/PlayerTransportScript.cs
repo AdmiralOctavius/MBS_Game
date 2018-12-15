@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * Name: Isaac
+ * Purpose: loads the player into the spot they were in before they left the scene
+ * */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;

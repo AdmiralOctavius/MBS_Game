@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ * Name: Trey
+ * Purpose: Script to start talking to an npc
+ * */
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;

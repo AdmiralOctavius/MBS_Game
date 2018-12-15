@@ -3957,9 +3957,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0219f6cecc461439bcbbc8b377d4d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BeatMinigame: 1
-  BeatMinigame2: 1
-  BeatMinigame3: 1
+  BeatMinigame: 0
+  BeatMinigame2: 0
+  BeatMinigame3: 0
   PlayerAttack: 0
   PlayerHP: 0
   PlayerDefense: 0
@@ -4893,9 +4893,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0219f6cecc461439bcbbc8b377d4d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BeatMinigame: 1
-  BeatMinigame2: 1
-  BeatMinigame3: 1
+  BeatMinigame: 0
+  BeatMinigame2: 0
+  BeatMinigame3: 0
   PlayerAttack: 0
   PlayerHP: 0
   PlayerDefense: 0

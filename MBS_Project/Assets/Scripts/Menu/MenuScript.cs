@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * Name: Trey, Isaac
+ * Purpose: Menu script for title screen, now includes fade to black
+ * */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;

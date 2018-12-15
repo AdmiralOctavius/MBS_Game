@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+ * Name: Trey, Isaac
+ * Purpose: Minigame talking script, same as npc
+ * */
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;

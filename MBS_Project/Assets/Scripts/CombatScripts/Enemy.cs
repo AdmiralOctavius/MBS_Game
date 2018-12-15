@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ * Name: Kris
+ * Purpose: Enemy stats holder
+ * */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
