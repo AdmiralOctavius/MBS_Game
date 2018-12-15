@@ -51,6 +51,7 @@ public class MG3PlayerHealth : MonoBehaviour {
 
         if (score >= 50)
         {
+            GetComponent<PlayerVariables>().SetPlayerVariable(8, 1);
             SceneManager.LoadScene("MG3YouWin");
         }
     }
