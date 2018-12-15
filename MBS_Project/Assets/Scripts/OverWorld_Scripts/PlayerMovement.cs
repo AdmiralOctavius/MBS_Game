@@ -26,21 +26,36 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetAxisRaw("Vertical") == 1)
             {
                 gameObject.transform.position += new Vector3(0, 0.04f, 0);
+                gameObject.GetComponent<Animator>().SetBool("isWalking", true);
             }
 
             else if (Input.GetAxisRaw("Vertical") == -1)
             {
                 gameObject.transform.position += new Vector3(0, -0.04f, 0);
+                gameObject.GetComponent<Animator>().SetBool("isWalking", true);
             }
 
             if (Input.GetAxisRaw("Horizontal") == 1)
             {
                 gameObject.transform.position += new Vector3(0.04f, 0, 0);
+                gameObject.GetComponent<SpriteRenderer>().flipX = true;
+                gameObject.GetComponent<Animator>().SetBool("isWalking", true);
             }
 
             if (Input.GetAxisRaw("Horizontal") == -1)
             {
                 gameObject.transform.position += new Vector3(-0.04f, 0, 0);
+                gameObject.GetComponent<SpriteRenderer>().flipX = false;
+                gameObject.GetComponent<Animator>().SetBool("isWalking", true);
+            }
+
+            if (Input.anyKey == true)
+            {
+                //keep walking
+            }
+            else
+            {
+                gameObject.GetComponent<Animator>().SetBool("isWalking", false  );
             }
         }
     }

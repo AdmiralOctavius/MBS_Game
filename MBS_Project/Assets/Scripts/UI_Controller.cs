@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class UI_Controller : MonoBehaviour {
 
     public List<GameObject> SelectableElementList;
+    public AudioSource clicker;
     //For Battle scene
 
 
@@ -542,7 +543,7 @@ public class UI_Controller : MonoBehaviour {
 
                         itemMenuObj.SetActive(false);
                         itemMenuUp = false;
-
+                        clicker.Play();
                         //Debug.Log("Calling coroutine");
                         StopCoroutine(UiTransfer(false));
                         StartCoroutine(UiTransfer(false));
@@ -553,7 +554,7 @@ public class UI_Controller : MonoBehaviour {
                         overworldUiOn = true;
                         startTime = Time.time;
                         //Debug.Log("Calling coroutine");
-
+                        clicker.Play();
                         StopCoroutine(UiTransfer(false));
                         StartCoroutine(UiTransfer(false));
                     }

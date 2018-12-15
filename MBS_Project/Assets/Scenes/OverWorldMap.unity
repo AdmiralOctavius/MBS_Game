@@ -477,6 +477,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f90f7fbcb51e3b4ea58550ce78b0170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerVars: {fileID: 0}
+  player: {fileID: 0}
+  TalkedTo: 0
+  targetScene: 
 --- !u!61 &96714078
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -685,6 +689,7 @@ GameObject:
   - component: {fileID: 277360983}
   - component: {fileID: 277360982}
   - component: {fileID: 277360981}
+  - component: {fileID: 277360984}
   m_Layer: 5
   m_Name: UIContainer
   m_TagString: Untagged
@@ -711,6 +716,8 @@ MonoBehaviour:
   PlayerHP: 0
   PlayerDefense: 0
   PlayerSpeed: 0
+  playerOverworldX: 0
+  playerOverworldY: 0
 --- !u!114 &277360982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,6 +736,7 @@ MonoBehaviour:
   - {fileID: 874310146}
   - {fileID: 940521248}
   - {fileID: 492298847}
+  clicker: {fileID: 277360984}
   currentCursorPos: 0
   selectionInputHeld: 0
   UIBattle: 0
@@ -786,6 +794,101 @@ RectTransform:
   m_AnchoredPosition: {x: -67, y: -232}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!82 &277360984
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 277360980}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 80f31c00b540dbe47943bcea3e728470, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &299944445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,6 +1125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a291d75e651bb784bad80fbe212bc219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerVars: {fileID: 0}
+  player: {fileID: 0}
+  miniGameScene: 
 --- !u!114 &303721684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1051,6 +1157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 1605168336}
+  miniGame: 0
 --- !u!1 &304321549
 GameObject:
   m_ObjectHideFlags: 0
@@ -3837,6 +3944,8 @@ MonoBehaviour:
   PlayerHP: 0
   PlayerDefense: 0
   PlayerSpeed: 0
+  playerOverworldX: 0
+  playerOverworldY: 0
 --- !u!4 &1605168338
 Transform:
   m_ObjectHideFlags: 0
