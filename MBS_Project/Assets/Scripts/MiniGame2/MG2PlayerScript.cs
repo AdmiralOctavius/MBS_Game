@@ -1,29 +1,25 @@
-﻿using UnityEngine.SceneManagement;
+﻿/*
+ * Jenna Meador
+ * Player script for MG2 - controls button in menu/win/lose scenes
+ */
+
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class MG2PlayerScript : MonoBehaviour
 {
-    public float speed = 0, walkSpeed = 5, sprintSpeed = 15;
+    public float speed;
     public static int toys = 0;
-
-    public void SetRespawnPoint(Vector2 vec)
-    {
-    }
 
     void Start()
     {
         toys = 0;
+        speed = 5;
     }
 
-    void Update()//More responsive - checks our input each frame
+    void Update()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-
-        if (Input.GetKey(KeyCode.LeftShift))
-            speed = sprintSpeed;
-        else
-            speed = walkSpeed;
-
 
         if (Input.GetKeyDown(KeyCode.Space)) //borrowed from Platformer class example 
         {
@@ -51,7 +47,6 @@ public class MG2PlayerScript : MonoBehaviour
     }
     void FixedUpdate()
     {
-        //Handle left and right movement
         float movement = Input.GetAxis("Horizontal") * speed;
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector3(movement, rb.velocity.y, 0);
@@ -69,21 +64,12 @@ public class MG2PlayerScript : MonoBehaviour
         else if (movement < 0)
             sr.flipX = true;
 
-        /* Animator anim = GetComponent<Animator>();
-
-         if (Mathf.Abs(movement - 0) > float.Epsilon)
-             anim.SetBool("isWalking", true);
-         else
-             anim.SetBool("isWalking", false);*/
-
         if (toys == 5)
         {
             GetComponent<PlayerVariables>().SetPlayerVariable(7, 1);
             SceneManager.LoadScene("MG2YouWin");
 
-        }
-
-        
+        }    
     }
 }
 

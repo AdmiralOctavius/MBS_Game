@@ -1,4 +1,9 @@
-﻿using UnityEngine.SceneManagement;
+﻿/*
+ * Jenna Meador
+ * Button script for MG2 - controls button in menu/win/lose scenes
+ */
+
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class MG2ButtonScript : MonoBehaviour

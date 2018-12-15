@@ -1,13 +1,13 @@
-﻿using UnityEngine;
+﻿/*
+ * Jenna Meador
+ * Camera script for MG2 - camera follows the player object
+ */
+
+ using UnityEngine;
 
 public class MG2Camera : MonoBehaviour
 {
     public GameObject followObject;
-
-    void Start()
-    {
-
-    }
 
     void Update()
     {
