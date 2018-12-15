@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ * Name: Kris
+ * Purpose: Copied stats for combat
+ * */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

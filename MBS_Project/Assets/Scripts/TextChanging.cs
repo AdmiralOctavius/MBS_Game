@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * Name: Anthony
+ * Purpose: File reader script that controls the text for the VN side
+ * */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

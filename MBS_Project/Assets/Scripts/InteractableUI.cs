@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * Name: Isaac, Trey
+ * Purpose: UI arrow that shows a nearby interactable object
+ * */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

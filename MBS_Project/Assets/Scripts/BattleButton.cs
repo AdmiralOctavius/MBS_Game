@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ * Name: Anthony
+ * Purpose: Scene loader into fight scene
+ * */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;

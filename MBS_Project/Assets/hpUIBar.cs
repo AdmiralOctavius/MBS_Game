@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * Name: Isaac
+ * Purpose: Health bar ui Controller
+ * */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ * Name: Isaac
+ * Purpose: UI arrow that shows selection
+ * */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿
+/*
+ * Name: Anthony
+ * Purpose: VN scene loader
+ * */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;

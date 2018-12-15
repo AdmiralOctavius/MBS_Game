@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ * Name: Anthony
+ * Purpose: VN filereader script for VN scene 2
+ * * */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * Name: Isaac
+ * Purpose: Control the saved variables and give other gameobjects access to the variables
+ * */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

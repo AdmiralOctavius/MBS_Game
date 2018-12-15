@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Names: Isaac, Kris
+ * Purpose: Ui controller for both overworld and battle scene within the game
+ * */
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
