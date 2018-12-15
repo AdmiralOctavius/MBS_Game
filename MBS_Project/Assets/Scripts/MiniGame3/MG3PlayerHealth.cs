@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
@@ -10,6 +9,9 @@ public class MG3PlayerHealth : MonoBehaviour {
     private float health;
 
     private float score;
+
+    public Text scoreText;
+    public Text healthText;
 
 
     // Use this for initialization
@@ -28,7 +30,11 @@ public class MG3PlayerHealth : MonoBehaviour {
     public void ChangeHealth(float damage)
     {
         health = Mathf.Min(health + damage, maxHealth);
-        Debug.Log("health:" + health);
+        //Debug.Log("health:" + health);
+
+        if (healthText)
+            healthText.text = "Health: " + health.ToString();
+
         if (health <= 0)
         {
             SceneManager.LoadScene("MG3YouLose");
@@ -38,7 +44,11 @@ public class MG3PlayerHealth : MonoBehaviour {
     public void ChangeScore(float points)
     {
         score += points;
-        Debug.Log("score:" + score);
+        //Debug.Log("score:" + score);
+
+        if (scoreText)
+            scoreText.text = "Score: " + score.ToString();
+
         if (score >= 50)
         {
             SceneManager.LoadScene("MG3YouWin");

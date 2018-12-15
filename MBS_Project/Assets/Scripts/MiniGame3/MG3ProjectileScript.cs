@@ -9,7 +9,7 @@ public class MG3ProjectileScript : MonoBehaviour {
     {
         Invoke("DieOff", 2);
 
-        gameObject.GetComponent<Rigidbody2D>().velocity = (10 * gameObject.transform.up);
+        gameObject.GetComponent<Rigidbody2D>().velocity = (10 * gameObject.transform.right);
 	}
 	
 	// Update is called once per frame
